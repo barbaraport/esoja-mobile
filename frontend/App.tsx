@@ -1,5 +1,5 @@
-import AppLoading from 'expo-app-loading';
-import React, { useEffect } from 'react';
+import * as SplashScreen from "expo-splash-screen";
+import React, { useCallback, useEffect } from 'react';
 import { StatusBar } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -17,8 +17,10 @@ import { StatisticsProvider } from './src/hooks/useStatistics';
 import { UploadProvider } from './src/hooks/useUpload';
 import { Routes } from './src/routes';
 
+SplashScreen.preventAutoHideAsync();
+
 export const App: React.FC = () => {
-  const { handleChageTheme, getStoredTheme, fontsLoaded, selectedTheme } =
+  const { handleChangeTheme, getStoredTheme, fontsLoaded, selectedTheme } =
     useApp();
 
   useEffect(() => {
@@ -26,9 +28,13 @@ export const App: React.FC = () => {
     getStoredTheme();
   }, [getStoredTheme]);
 
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) return null;
 
   return (
     <ThemeProvider theme={theme[selectedTheme]}>
@@ -41,7 +47,7 @@ export const App: React.FC = () => {
                   <PropertyProvider>
                     <StatisticsProvider>
                       <GestureHandlerRootView style={{ flex: 1 }}>
-                        <SafeAreaProvider>
+                        <SafeAreaProvider onLayout={onLayoutRootView}>
                           <StatusBar
                             barStyle={
                               selectedTheme === 'dark'

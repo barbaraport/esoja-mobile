@@ -19,7 +19,7 @@ export const useApp = () => {
     deviceTheme || 'dark'
   );
 
-  const handleChageTheme = async (changeTheme: Theme = 'dark') => {
+  const handleChangeTheme = async (changeTheme: Theme = 'dark') => {
     setSelectedTheme(changeTheme);
     AsyncStorage.setItem('@esoja:theme', changeTheme);
   };
@@ -39,7 +39,7 @@ export const useApp = () => {
   });
 
   return {
-    handleChageTheme,
+    handleChangeTheme,
     getStoredTheme,
     fontsLoaded,
     selectedTheme
