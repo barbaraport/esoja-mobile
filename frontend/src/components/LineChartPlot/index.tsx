@@ -43,7 +43,7 @@ export const LineChartPlot: React.FC<LineChartProps> = ({
                   data: data?.y
                 }
               ]
-            : data.datasets
+            : data.datasets!
         }}
         width={Dimensions.get('window').width - 50}
         height={220}

@@ -44,7 +44,7 @@ export const CardPropertDate = styled.Text`
   color: ${({ theme }) => theme.colors.text};
 `;
 
-export const CardPropertButton = styled(TouchableOpacity)`
+export const CardPropertButton = styled<any>(TouchableOpacity)`
   position: absolute;
   right: ${RFWidth(4)}px;
   align-items: center;

@@ -118,7 +118,7 @@ export const NewProperty: React.FC<NewPropertyScreenRouteProps> = ({
                 placeholder={translate('newProperty.propertyNamePlaceholder')}
                 autoCapitalize="sentences"
                 autoCorrect={false}
-                errorMessage={errors?.name?.message}
+                errorMessage={errors!.name!.message?.toString()}
               />
               <ZipCodeContainer>
                 <TextInputMask
@@ -129,7 +129,7 @@ export const NewProperty: React.FC<NewPropertyScreenRouteProps> = ({
                   icon="map-pin"
                   placeholder={translate('newProperty.propertyCepPlaceholder')}
                   keyboardType="numeric"
-                  errorMessage={errors?.zipcode?.message}
+                  errorMessage={errors!.zipcode!.message?.toString()}
                 />
                 <OrText>{translate('newProperty.or')}</OrText>
                 <Button

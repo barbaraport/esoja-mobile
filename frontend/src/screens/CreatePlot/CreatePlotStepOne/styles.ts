@@ -128,7 +128,7 @@ export const MapIcon = styled(Feather)`
   color: ${({ theme }) => theme.colors.white};
 `;
 
-export const ReactNativeMapView = styled(MapView)`
+export const ReactNativeMapView = styled<any>(MapView)`
   flex: 1;
 `;
 

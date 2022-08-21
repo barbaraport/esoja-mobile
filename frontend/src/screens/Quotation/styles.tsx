@@ -63,7 +63,7 @@ export const QuotationList = styled(
   }
 })``;
 
-export const AddButton = styled(RectButton)`
+export const AddButton = styled<any>(RectButton)`
   position: absolute;
   right: 0;
   bottom: 0;

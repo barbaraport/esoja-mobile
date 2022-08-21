@@ -5,15 +5,16 @@
     "scheme": "esoja-mobile",
     "version": "1.0.0",
     "assetBundlePatterns": ["**/*"],
+    "android": {
+      "package": "com.esojamobile",
+    },
     "ios": {
       "bundleIdentifier": "esoja-mobile"
     },
     "plugins": [
       [
         "expo-image-picker",
-        {
-          "photosPermission": "The app accesses your photos to let you share them with your friends."
-        }
+        "@react-native-firebase/app"
       ]
     ]
   },

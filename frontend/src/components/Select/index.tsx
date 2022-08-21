@@ -1,5 +1,5 @@
-import { Picker } from '@react-native-community/picker';
-import { PickerProps } from '@react-native-community/picker/typings/Picker';
+
+import { Picker, PickerProps } from '@react-native-picker/picker';
 import React from 'react';
 import { useTheme } from 'styled-components';
 import { translate } from '../../data/I18n';
@@ -22,6 +22,8 @@ export interface PickerSelectProps extends PickerProps {
   itens: ItemType[];
   label: string;
   error?: string;
+  selectedValue: string;
+  onValueChange: any
 }
 
 export const Select: React.FC<PickerSelectProps> = ({

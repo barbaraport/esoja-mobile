@@ -77,7 +77,6 @@ export const SignIn: React.FC<SignInScreenRouteProps> = ({ navigation }) => {
                 autoCapitalize="none"
                 name="email"
                 control={control}
-                errorMessage={errors?.email?.message}
               />
 
               <TextInput
@@ -86,7 +85,6 @@ export const SignIn: React.FC<SignInScreenRouteProps> = ({ navigation }) => {
                 secureTextEntry
                 name="password"
                 control={control}
-                errorMessage={errors?.password?.message}
               />
 
               <Button

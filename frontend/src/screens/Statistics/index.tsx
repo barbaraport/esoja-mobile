@@ -76,8 +76,8 @@ export const Statistics: React.FC<StatisticsScreenRouteProps> = () => {
 
   const [selectedPlotId, setSelectedPlotId] = useState('default');
   const [selectedObtentor, setSelectedObtentor] = useState('default');
+  
   const [selectedCultivar, setSelectedCultivar] = useState('default');
-
   const [productionChartData, setProductionChartData] =
     useState<ChartData | null>(null);
   const [weatherChartData, setWeatherChartData] = useState<ChartData | null>(
@@ -287,7 +287,7 @@ export const Statistics: React.FC<StatisticsScreenRouteProps> = () => {
               <Select
                 placeholder={translate('statistics.selectPlot')}
                 selectedValue={selectedPlotId}
-                onValueChange={value =>
+                onValueChange={(value: string) =>
                   value !== 'default' && handleSelectPlot(`${value}`)
                 }
                 icon="file-text"
@@ -304,7 +304,7 @@ export const Statistics: React.FC<StatisticsScreenRouteProps> = () => {
               <>
                 <Select
                   selectedValue={selectedObtentor}
-                  onValueChange={value =>
+                  onValueChange={(value: string) =>
                     value !== 'default' && handleSelectObtentor(`${value}`)
                   }
                   placeholder={translate('statistics.selectPlot')}
@@ -317,7 +317,7 @@ export const Statistics: React.FC<StatisticsScreenRouteProps> = () => {
                   <>
                     <Select
                       selectedValue={selectedCultivar}
-                      onValueChange={value =>
+                      onValueChange={(value: string) =>
                         value !== 'default' &&
                         setSelectedCultivar(value as string)
                       }

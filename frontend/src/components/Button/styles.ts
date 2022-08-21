@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components/native';
 import { RectButton as RectButtonRNGH } from 'react-native-gesture-handler';
+import styled, { css } from 'styled-components/native';
 
 import { RFFontSize, RFHeight, RFWidth } from '../../utils/getResponsiveSizes';
 
@@ -7,7 +7,7 @@ interface TypeProps {
   type: 'primary' | 'secondary' | 'tertiary';
 }
 
-export const RectButton = styled(RectButtonRNGH)`
+export const RectButton = styled<any>(RectButtonRNGH)`
   height: ${RFHeight(56)}px;
   border-radius: ${RFHeight(8)}px;
   background: ${({ theme }) => theme.colors.primary};

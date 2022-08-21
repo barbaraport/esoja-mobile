@@ -41,7 +41,7 @@ export const InnerContainer = styled.View<ContainerProps>`
         `}
 `;
 
-export const RNTextInput = styled(TextInputMask)`
+export const RNTextInput = styled<any>(TextInputMask)`
   flex: 1;
   color: ${({ theme }) => theme.colors.text};
   font-size: ${RFFontSize(16)}px;

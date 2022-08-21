@@ -79,7 +79,6 @@ export const SignUp: React.FC<SignUpScreenRouteProps> = () => {
             icon="user"
             name="name"
             control={control}
-            errorMessage={errors?.name?.message}
           />
           <TextInput
             label="signUp.email"
@@ -87,7 +86,6 @@ export const SignUp: React.FC<SignUpScreenRouteProps> = () => {
             icon="mail"
             name="email"
             control={control}
-            errorMessage={errors?.email?.message}
           />
 
           <TextInput
@@ -97,7 +95,6 @@ export const SignUp: React.FC<SignUpScreenRouteProps> = () => {
             secureTextEntry
             name="password"
             control={control}
-            errorMessage={errors?.password?.message}
           />
 
           <TextInput
@@ -107,7 +104,6 @@ export const SignUp: React.FC<SignUpScreenRouteProps> = () => {
             icon="repeat"
             name="passwordConfirmation"
             control={control}
-            errorMessage={errors?.passwordConfirmation?.message}
           />
           <NextStepButton>
             <Button

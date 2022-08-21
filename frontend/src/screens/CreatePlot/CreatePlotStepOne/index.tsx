@@ -152,7 +152,7 @@ export const CreatePlotStepOne: React.FC<CreatePlotStepOneScreenRouteProps> = ({
                   showsUserLocation
                   mapType="satellite"
                   region={region}
-                  onPress={e => {
+                  onPress={(e: any) => {
                     if (mode === 'POINT') {
                       setPolygon([e.nativeEvent.coordinate]);
                     } else {
@@ -195,7 +195,7 @@ export const CreatePlotStepOne: React.FC<CreatePlotStepOneScreenRouteProps> = ({
                   disabled={mode === 'POLYGON'}
                   name="areaTotal"
                   control={control}
-                  errorMessage={errors?.areaTotal?.message}
+                  errorMessage={errors!.areaTotal!.message?.toString()}
                 />
               </MapContainer>
             </>

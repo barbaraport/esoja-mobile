@@ -94,7 +94,7 @@ export const CreatePlotStepTwo: React.FC<CreatePlotStepTwoScreenRouteProps> = ({
                 'CreatePlotStepTwo.fieldPropertyPlaceholder'
               )}
               selectedValue={propertyId}
-              onValueChange={value =>
+              onValueChange={(value: string) =>
                 value !== 'default' && setPropertyId(`${value}`)
               }
               icon="file-text"
@@ -110,14 +110,14 @@ export const CreatePlotStepTwo: React.FC<CreatePlotStepTwoScreenRouteProps> = ({
             icon="check-square"
             name="description"
             control={control}
-            errorMessage={errors?.description?.message}
+            errorMessage={errors!.description!.message?.toString()}
           />
           <DateInput
             name="plantingDate"
             control={control}
             icon="calendar"
             label="CreatePlotStepTwo.fieldDate"
-            errorMessage={errors?.plantingDate?.message}
+            errorMessage={errors!.plantingDate!.message?.toString()}
             placeholder={translate('CreatePlotStepTwo.fieldDatePlaceholder')}
           />
           <TextInputMask
@@ -129,7 +129,7 @@ export const CreatePlotStepTwo: React.FC<CreatePlotStepTwoScreenRouteProps> = ({
             icon="check-square"
             name="cropYear"
             control={control}
-            errorMessage={errors?.cropYear?.message}
+            errorMessage={errors!.cropYear!.message?.toString()}
           />
           <NextStepButton>
             <Button

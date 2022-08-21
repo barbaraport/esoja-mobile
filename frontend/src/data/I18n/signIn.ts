@@ -13,7 +13,8 @@ export default {
       errors: {
         email: {
           required: 'E-mail é obrigatório',
-          format: 'E-mail invalido'
+          format: 'E-mail invalido',
+          message: ''
         },
         password: {
           length: 'Senha muito curta'
@@ -35,7 +36,8 @@ export default {
       errors: {
         email: {
           required: 'Email is required',
-          format: 'Invalid email'
+          format: 'Invalid email',
+          message: ''
         },
         password: {
           length: 'Very short password'

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components/native';
 import { Platform } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
+import { RectButton as RectButtonRNGH} from 'react-native-gesture-handler';
 
 import { RFFontSize, RFHeight, RFWidth } from '../../utils/getResponsiveSizes';
 
@@ -76,7 +76,7 @@ export const SocialSignInButtonsContainer = styled.View`
   flex-direction: row;
 `;
 
-export const SocialSignInButton = styled(RectButton)<SocialSignProps>`
+export const SocialSignInButton = styled<any>(RectButtonRNGH)`
   flex: 1;
   height: ${RFHeight(40)}px;
   border-radius: ${RFHeight(8)}px;

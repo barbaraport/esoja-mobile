@@ -46,8 +46,8 @@ export const App: React.FC = () => {
                 <PlotProvider>
                   <PropertyProvider>
                     <StatisticsProvider>
-                      <GestureHandlerRootView style={{ flex: 1 }}>
-                        <SafeAreaProvider onLayout={onLayoutRootView}>
+                      <GestureHandlerRootView style={{ flex: 1 }} onLayout={onLayoutRootView}>
+                        <SafeAreaProvider>
                           <StatusBar
                             barStyle={
                               selectedTheme === 'dark'

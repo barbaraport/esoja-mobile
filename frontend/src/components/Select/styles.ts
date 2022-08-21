@@ -1,5 +1,5 @@
 import { Feather } from '@expo/vector-icons';
-import { Picker } from '@react-native-community/picker';
+import { Picker } from '@react-native-picker/picker';
 import styled from 'styled-components/native';
 import { RFFontSize, RFHeight, RFWidth } from '../../utils/getResponsiveSizes';
 
@@ -19,7 +19,7 @@ export const Container = styled.View<ContainerProps>`
   align-items: center;
 `;
 
-export const StyledPickerSelect = styled(Picker)`
+export const StyledPickerSelect = styled<any>(Picker)`
   flex: 1;
   min-height: ${RFHeight(56)}px;
   font-size: ${RFWidth(16)}px;

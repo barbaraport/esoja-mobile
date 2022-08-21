@@ -68,7 +68,7 @@ export const FeatherIcon = styled(Feather)<FeatherIconProps>`
     `}
 `;
 
-export const PickerPressable = styled(RectButton)`
+export const PickerPressable = styled<any>(RectButton)`
   width: 100%;
   height: 100%;
   flex-direction: row;

@@ -60,7 +60,7 @@ const PlotProvider: React.FC<PlotContextProps> = ({ children }) => {
     [plotLocale]
   );
 
-  const getPlots = useCallback(async query => {
+  const getPlots = useCallback(async (query: any) => {
     try {
       const { data } = await api.get<Plot[]>(`/cultive`, {
         params: query,
