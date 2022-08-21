@@ -1,17 +1,15 @@
 import { ReactNativeFirebase } from "@react-native-firebase/app";
 import { firebase } from "@react-native-firebase/storage";
 
+/**
+ * gets an instance from the eSoja firebase app
+ * 
+ * @return {Promise<ReactNativeFirebase.FirebaseApp>} the firebase app instance
+ * 
+ * @author Port, B.
+ */
 export async function getApp(): Promise<ReactNativeFirebase.FirebaseApp> {
-
     const projectName: string = 'eSoja';
-    const firebaseApps: Array<ReactNativeFirebase.FirebaseApp> = firebase.apps;
-
-    // Delete "secondary" if it exists
-    firebaseApps.forEach(async firebaseApp => {
-        if (firebaseApp.name !== projectName) {
-            await firebaseApp.delete();
-        }
-    });
 
     const options: ReactNativeFirebase.FirebaseAppOptions = {
         apiKey: "X",
