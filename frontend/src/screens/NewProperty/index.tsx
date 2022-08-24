@@ -74,17 +74,20 @@ export const NewProperty: React.FC<NewPropertyScreenRouteProps> = ({
         data.picture = picture;
       }
       if (!data?.latitude) {
+        debugger;
         const { latitude, longitude } = await getGeoCode(data.zipcode);
         data.latitude = latitude;
         data.longitude = longitude;
       }
       data.userId = authUser?.id;
+      debugger;
       await createPorperty(data);
+      debugger;
       navigation.navigate('Properties');
       setLoading(false);
-    } catch (error) {
+    } catch (error: any) {
       console.log(error);
-      Alert.alert(translate('newProperty.newPropertyAlert'));
+      Alert.alert(error as string);
       setLoading(false);
     }
   }
@@ -118,7 +121,7 @@ export const NewProperty: React.FC<NewPropertyScreenRouteProps> = ({
                 placeholder={translate('newProperty.propertyNamePlaceholder')}
                 autoCapitalize="sentences"
                 autoCorrect={false}
-                errorMessage={errors!.name!.message?.toString()}
+                errorMessage={errors?.name?.message?.toString()}
               />
               <ZipCodeContainer>
                 <TextInputMask
@@ -129,7 +132,7 @@ export const NewProperty: React.FC<NewPropertyScreenRouteProps> = ({
                   icon="map-pin"
                   placeholder={translate('newProperty.propertyCepPlaceholder')}
                   keyboardType="numeric"
-                  errorMessage={errors!.zipcode!.message?.toString()}
+                  errorMessage={errors?.zipcode?.message?.toString()}
                 />
                 <OrText>{translate('newProperty.or')}</OrText>
                 <Button
