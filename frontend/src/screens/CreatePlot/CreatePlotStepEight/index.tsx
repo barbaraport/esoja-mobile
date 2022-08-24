@@ -86,7 +86,7 @@ export const CreatePlotStepEight: React.FC<
             icon="check-square"
             name="grainsPlant1"
             control={control}
-            errorMessage={errors!.grainsPlant1!.message!.toString()}
+            errorMessage={errors?.grainsPlant1?.message?.toString()}
           />
           <TextInput
             label="CreatePlotStepEight.sampleB"
@@ -94,7 +94,7 @@ export const CreatePlotStepEight: React.FC<
             icon="check-square"
             name="grainsPlant2"
             control={control}
-            errorMessage={errors!.grainsPlant2!.message?.toString()}
+            errorMessage={errors?.grainsPlant2?.message?.toString()}
           />
           <TextInput
             label="CreatePlotStepEight.sampleDescription"

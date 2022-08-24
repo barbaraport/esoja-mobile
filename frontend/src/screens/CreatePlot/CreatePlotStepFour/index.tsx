@@ -74,7 +74,7 @@ export const CreatePlotStepFour: React.FC<
             keyboardType="numeric"
             name="plantsPerMeter"
             control={control}
-            errorMessage={errors!.plantsPerMeter!.message?.toString()}
+            errorMessage={errors?.plantsPerMeter?.message?.toString()}
           />
           <NextStepButton>
             <Button

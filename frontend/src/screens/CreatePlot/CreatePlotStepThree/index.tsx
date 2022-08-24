@@ -77,7 +77,7 @@ export const CreatePlotStepThree: React.FC<
             keyboardType="numeric"
             name="metersBetweenPlants"
             control={control}
-            errorMessage={errors!.metersBetweenPlants!.message?.toString()}
+            errorMessage={errors?.metersBetweenPlants?.message?.toString()}
           />
           <NextStepButton>
             <Button

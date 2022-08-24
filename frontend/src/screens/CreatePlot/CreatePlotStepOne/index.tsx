@@ -195,7 +195,7 @@ export const CreatePlotStepOne: React.FC<CreatePlotStepOneScreenRouteProps> = ({
                   disabled={mode === 'POLYGON'}
                   name="areaTotal"
                   control={control}
-                  errorMessage={errors!.areaTotal!.message?.toString()}
+                  errorMessage={errors?.areaTotal?.message?.toString()}
                 />
               </MapContainer>
             </>
