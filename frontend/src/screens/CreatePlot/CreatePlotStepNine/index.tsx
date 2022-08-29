@@ -39,6 +39,7 @@ export const CreatePlotStepNine: React.FC<
       navigation.navigate('Plots');
     } catch (err) {
       setLoading(false);
+      console.error(err);
       Alert.alert(
         'Erro ao cadastrar',
         'Não foi possivel cadastrar as amostras'

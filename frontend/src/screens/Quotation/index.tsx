@@ -27,6 +27,7 @@ export const QuotationPage: React.FC<QuotationScreenRouteProps> = ({
         );
         setBagQuotation(bags);
       } catch (err) {
+        console.error(err);
         Alert.alert('Não foi possivel atualizar os dados ');
       }
     };

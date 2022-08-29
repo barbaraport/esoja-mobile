@@ -68,6 +68,7 @@ const PlotProvider: React.FC<PlotContextProps> = ({ children }) => {
       });
       return data;
     } catch (err: any) {
+      console.error(err);
       Alert.alert(err.response.data.message || err.response.data.message[0]);
       return [];
     }
@@ -78,6 +79,7 @@ const PlotProvider: React.FC<PlotContextProps> = ({ children }) => {
       const { data } = await api.get<Plot>(`/cultive/${id}`);
       return data;
     } catch (err: any) {
+      console.error(err);
       Alert.alert(err.response.data.message || err.response.data.message[0]);
       return {} as Plot;
     }

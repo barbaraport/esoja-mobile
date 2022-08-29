@@ -56,6 +56,7 @@ export const CreatePlotStepTwo: React.FC<CreatePlotStepTwoScreenRouteProps> = ({
       await createPlot({ ...data, propertyId });
       return navigation.navigate('Plots');
     } catch (err) {
+      console.error(err);
       return Alert.alert('Não foi possível criar o talhão');
     }
   };

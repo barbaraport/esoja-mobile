@@ -87,6 +87,7 @@ const AuthProvider: React.FC<AuthContextProps> = ({ children }) => {
 
         await storeUser(user, token);
       } catch (error) {
+        console.error(error);
         Alert.alert(
           'Erro',
           'Não foi possível fazer o login, tente novamente mais tarde'
@@ -119,6 +120,7 @@ const AuthProvider: React.FC<AuthContextProps> = ({ children }) => {
           });
           await storeUser(user, token);
         } catch (err) {
+          console.error(err);
           Alert.alert(
             'Erro',
             'Não foi possível fazer o login, tente novamente mais tarde'
@@ -128,6 +130,7 @@ const AuthProvider: React.FC<AuthContextProps> = ({ children }) => {
         throw new Error('rejected signIn');
       }
     } catch (err) {
+      console.error(err);
       Alert.alert(
         'Erro',
         'Não foi possível fazer o login, tente novamente mais tarde'
@@ -154,6 +157,7 @@ const AuthProvider: React.FC<AuthContextProps> = ({ children }) => {
           });
           await storeUser(user, token);
         } catch (err) {
+          console.error(err);
           Alert.alert(
             'Erro',
             'Não foi possível fazer o login, tente novamente mais tarde'
@@ -163,6 +167,7 @@ const AuthProvider: React.FC<AuthContextProps> = ({ children }) => {
         throw new Error('rejected signIn');
       }
     } catch (err) {
+      console.error(err);
       Alert.alert(
         'Erro',
         'Não foi possível fazer o login, tente novamente mais tarde'
@@ -178,6 +183,7 @@ const AuthProvider: React.FC<AuthContextProps> = ({ children }) => {
       const user = { ...data, id } as User;
       await storeUser(user, token);
     } catch (err) {
+      console.error(err);
       Alert.alert(
         'Erro',
         'Não foi possível fazer o login, tente novamente mais tarde'

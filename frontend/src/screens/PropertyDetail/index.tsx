@@ -57,6 +57,7 @@ export const PropertyDetail: React.FC<PropertyDetailScreenRouteProps> = ({
           JSON.stringify(properties[0])
         );
       } catch (err) {
+        console.error(err);
         Alert.alert(translate('properties.PropertyDetailLoadError'));
       }
     } else {

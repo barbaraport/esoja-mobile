@@ -36,6 +36,7 @@ const PropertyProvider: React.FC<PropertyContextProps> = ({ children }) => {
       });
       return data;
     } catch (err: any) {
+      console.error(err);
       Alert.alert(err.response.data.message || err.response.data.message[0]);
       return [];
     }

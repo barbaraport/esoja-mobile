@@ -10,6 +10,7 @@ export function formatCurrency(value: number) {
     if (isNegativeValue && tmp) tmp = `-${tmp}`;
     return tmp ? `R$ ${tmp}` : isNegativeValue ? 'R$ -' : '';
   } catch (e) {
+    console.error(e);
     return 'R$ 0,00';
   }
 }

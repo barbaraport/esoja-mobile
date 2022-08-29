@@ -58,6 +58,7 @@ export const getWeatherDay = async (coordinates: Coordinates) => {
 
     return data;
   } catch (err) {
+    console.error(err);
     throw new Error('Não foi possivel atualizar');
   }
 };

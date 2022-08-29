@@ -80,6 +80,7 @@ const HomeProvider: React.FC<HomeContextProps> = ({ children }) => {
 
       return data;
     } catch (err) {
+      console.error(err);
       throw new Error('erro');
     }
   }, [isConnected]);
@@ -99,6 +100,7 @@ const HomeProvider: React.FC<HomeContextProps> = ({ children }) => {
       );
       return data;
     } catch (err: any) {
+      console.error(err);
       throw new Error(
         err.response.data.message || err.response.data.message[0]
       );

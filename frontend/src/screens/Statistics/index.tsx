@@ -174,6 +174,7 @@ export const Statistics: React.FC<StatisticsScreenRouteProps> = () => {
         setWaterChartData(getWaterChartData(produtividade));
         setObtentoresOptions([]);
       } catch (err) {
+        console.error(err);
         Alert.alert(
           translate('statistics.errorAlertTitle'),
           translate('statistics.ProdExpectationMsgError')
@@ -212,6 +213,7 @@ export const Statistics: React.FC<StatisticsScreenRouteProps> = () => {
         }
       }
     } catch (err) {
+      console.error(err);
       Alert.alert(translate('statistics.holdersAlertMsg'));
     }
     setLoading(false);
@@ -229,6 +231,7 @@ export const Statistics: React.FC<StatisticsScreenRouteProps> = () => {
         }))
       );
     } catch (err) {
+      console.error(err);
       Alert.alert(translate('statistics.cultivarsAlertMsg'));
     }
     setLoading(false);

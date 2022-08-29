@@ -34,6 +34,7 @@ const LocationProvider: React.FC<LocationContextProps> = ({ children }) => {
       const { status } = await Location.requestForegroundPermissionsAsync();
       return status === 'granted';
     } catch (error) {
+      console.error(error);
       return false;
     }
   };
