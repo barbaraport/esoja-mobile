@@ -74,15 +74,12 @@ export const NewProperty: React.FC<NewPropertyScreenRouteProps> = ({
         data.picture = picture;
       }
       if (!data?.latitude) {
-        debugger;
         const { latitude, longitude } = await getGeoCode(data.zipcode);
         data.latitude = latitude;
         data.longitude = longitude;
       }
       data.userId = authUser?.id;
-      debugger;
       await createPorperty(data);
-      debugger;
       navigation.navigate('Properties');
       setLoading(false);
     } catch (error: any) {
