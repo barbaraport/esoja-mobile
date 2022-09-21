@@ -43,9 +43,9 @@ const LocationProvider: React.FC<LocationContextProps> = ({ children }) => {
     if (coords?.latitude) {
       return coords;
     }
-    const permited = await getPermission();
+    const permissionGranted = await getPermission();
 
-    if (permited) {
+    if (permissionGranted) {
       const geolocation = await Location.getCurrentPositionAsync({
         accuracy: Location.Accuracy.Highest
       });

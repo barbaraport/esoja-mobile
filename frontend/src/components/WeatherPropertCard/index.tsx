@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { translate } from '../../data/I18n';
 import { Property } from '../../data/Model/Property';
 import { useLocation } from '../../hooks/useLocation';
 import { RFFontSize } from '../../utils/getResponsiveSizes';
@@ -43,7 +44,7 @@ export const WeatherPropertCard: React.FC<WeatherPropertCardProps> = ({
         <CardPropertIcon name="map-pin" size={RFFontSize(30)} />
         <CardPropertNameContainer>
           <CardPropertName>
-            {selectedProperty?.name || 'Seu local'}
+            {selectedProperty?.name || translate('weather.local')}
           </CardPropertName>
           <CardPropertDate>{city}</CardPropertDate>
         </CardPropertNameContainer>

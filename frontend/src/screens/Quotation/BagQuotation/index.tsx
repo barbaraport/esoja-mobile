@@ -26,12 +26,12 @@ const buttons = [
   {
     path: 'SeedQuotation',
     selected: false,
-    title: 'Sementes'
+    title: translate('quotation.seedTitleFooter')
   },
   {
     path: 'BagQuotation',
     selected: true,
-    title: 'Saca'
+    title: translate('quotation.bagTitleFooter')
   }
 ];
 
@@ -63,7 +63,7 @@ export const BagQuotation: React.FC<BagQuotationProps> = ({
         <Header>
           <Title
             title={translate('quotation.bagPageTitle')}
-            subtitle="Valores baseados no preço da soja disponivel do estado do Mato Grosso do Sul"
+            subtitle={translate("quotation.bagPageDescription")}
           />
         </Header>
         <ListHeaderContainer>
