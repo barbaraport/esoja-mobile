@@ -72,7 +72,7 @@ export const BagQuotation: React.FC<BagQuotationProps> = ({
           <ListHeaderText>{translate('quotation.variation')}</ListHeaderText>
         </ListHeaderContainer>
         {bagQuotation.map(
-          (item, i) => i <= 3 && <QuotationCard key={i} data={item} />
+          (item, i) => item !== undefined && i <= 3 && <QuotationCard key={i} data={item} />
         )}
         {!!quotationData?.x?.length && (
           <LineChartPlot

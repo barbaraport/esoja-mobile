@@ -83,7 +83,7 @@ export const SeedQuotation: React.FC<SeedQuotationProps> = ({
           <ListHeaderText>{translate('quotation.variation')}</ListHeaderText>
         </ListHeaderContainer>
         {seedQuotation.map(
-          (item, i) => i <= 3 && <QuotationCard key={i} data={item} />
+          (item, i) => item !== undefined && i <= 3 && <QuotationCard key={i} data={item} />
         )}
         {!!quotationData?.x?.length && (
           <LineChartPlot
