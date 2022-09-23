@@ -35,7 +35,6 @@ export const TextInput: React.FC<TextInputProps> = ({
   ...rest
 }) => {
   const theme = useTheme();
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const inputElementRef = useRef<any>(null);
 
   const [isFocused, setIsFocused] = useState(false);

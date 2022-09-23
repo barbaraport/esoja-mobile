@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import { format } from 'date-fns';
 import React, { useMemo } from 'react';
 import { LineChartPlot } from '../../../components/LineChartPlot';

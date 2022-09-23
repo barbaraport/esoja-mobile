@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import { Query } from 'nestjs-prisma-querybuilder-interface';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Alert, ScrollView } from 'react-native';

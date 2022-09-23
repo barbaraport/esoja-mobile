@@ -43,7 +43,6 @@ export const DateInput: React.FC<TextInputProps> = ({
 }) => {
   const theme = useTheme();
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [showDatePicker, setShowDatePicker] = useState(false);
   const { field } = useController({
     name,

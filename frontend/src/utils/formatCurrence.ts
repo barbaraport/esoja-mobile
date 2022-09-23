@@ -1,5 +1,3 @@
-/* eslint-disable eqeqeq */
-/* eslint-disable no-nested-ternary */
 export function formatCurrency(value: number) {
   try {
     let tmp = `${value.toFixed(2)}`;

@@ -1,5 +1,3 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable import/no-duplicates */
 import { format, fromUnixTime, subHours } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 
