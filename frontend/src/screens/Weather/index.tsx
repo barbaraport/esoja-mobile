@@ -1,3 +1,4 @@
+import { getLocalizationAsync } from 'expo-localization';
 import { Query } from 'nestjs-prisma-querybuilder-interface';
 import React, { useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator, Alert, ScrollView, StatusBar } from 'react-native';
@@ -77,7 +78,7 @@ export const Weather: React.FC<WeatherScreenRouteProps> = () => {
 
   const getData = useCallback(
     async (coords: Coordinates) => {
-      const weather = await getWeatherForecast(coords, 'pt_br');
+      const weather = await getWeatherForecast(coords, (await getLocalizationAsync()).locale);
       if (weather) {
         setList(weather);
         handleSelectDate(weather, weather[0].dt);
