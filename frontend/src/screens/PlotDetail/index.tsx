@@ -53,7 +53,7 @@ export const PlotDetail: React.FC<PlotDetailScreenRouteProps> = ({
       setPlot(properties[0]);
     } catch (err) {
       console.error(err);
-      Alert.alert(translate('plots.PlotDetailLoadProErro'));
+      Alert.alert(translate('plots.PlotDetailLoadProError'));
     }
   }, [getPlots, plotId]);
 
