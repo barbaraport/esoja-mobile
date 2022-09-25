@@ -1,122 +1,22 @@
-<h1 align="center"> 
-  Aprendizado por Projeto Integrador
-</h1>
+# :vibration_mode: eSoja app :seedling:
+## :running_woman: Como rodar o aplicativo
 
-<h2 align="center"> 
-  
-![](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![](https://img.shields.io/badge/Expo-1B1F23?style=for-the-badge&logo=expo&logoColor=white) ![](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white) ![](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white) ![](https://img.shields.io/badge/nestjs-E0234E?style=for-the-badge&logo=nestjs&logoColor=white) ![](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) ![](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)  
-  
-</h2>
+Primeiramente, clone o repositório. Atente-se sobre o caminho do clone dentro da sua máquina. Evite que quaisquer pastas tenham caracteres especiais e espaços no nome. Depois, siga os seguintes passos:
 
+## Android :robot:
 
-
-## 📌 Desafio
-
-<p>
-O desafio do projeto é criar um aplicativo colaborativo para produtores rurais e através desse aplicativo os usuários poderão incluir informações do dia a dia sobre sua plantação. Essas informações consistem em dados alfa-numéricos e fotos georreferenciadas pelo GPS do próprio celular. Com os dados de vários usuários, o aplicativo irá fornecer informações estatísticas sobre sua produção, podendo assim comparar com dados históricos de outros usuários.
-<p>
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-## 🏁 Projeto
-
-eSoja é o nome do aplicativo proposto pela equipe para solucionar o desafio, esse aplicativo ele deve entregar as seguintes funcionalidades:
-
-* Cadastro de propriedade;
-* Cadastro da área de cultivo;
-* Cadastro de amostras;
-* Previsão do Tempo;
-* Estatísticas do Plantio do usuário
-* Login normal ou através do google, apple ou facebook;
-* Informações sobre o mercado;
-* Comparação Estatística por Região.
-  
---------------------------------------------------------------------------------------------------------------------------------------------------------------
-  
-### 💹 Planejamento
-Entre no link e acesse a branch referente a sprint:
-
-| Sprints/Entregas do Projeto | Deliverables | Data | Concluído |
-| :---: | :---: | :---: | :---: |
-| `Kik-off`  | Apresentação do projeto | 14/03/2022 a 18/03/2022 | ✅ |
-| [`Sprint 1`](https://github.com/cluster-8/esoja-mobile/blob/Sprint-1/README.md) | Meu Cultivo/Plantio e Previsão do Tempo | 25/03/2022 a 14/04/2022 | ✅ |
-| [`Sprint 2`](https://github.com/cluster-8/esoja-mobile/tree/Sprint-2) |  Login social e Informações do Mercado | 25/04/2022 a 15/15/2022 | ✅ |
-| [`Sprint 3`](https://github.com/cluster-8/esoja-mobile/tree/Sprint-3) | Comparação Estatística por Região e Estatísticas sobre o plantio | 16/05/2022 a 05/06/2022 | ✅ |
-| `Apresentação Final` | Apresentação da última Sprint | ❓ | 🚧 |
-| `Feira de Soluções` | Apresentação dos vídeos criados pelas equipes | ❓ | 🚧 |
-  
---------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-### 📃 Product Backlog
-
-> [__Product Backlog__](https://github.com/cluster-8/esoja-mobile/blob/main/Docs/eSoja-product-backlog.pdf)
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-### 💻 Wireframe 
-
-Acesse o link para visualizar:
-
-> * [Light Mode](https://www.figma.com/file/tHWwoGru7N8AbAoRujX0ED/eSoja?node-id=836%3A72)
-> * [Dark Mode](https://www.figma.com/file/tHWwoGru7N8AbAoRujX0ED/eSoja?node-id=838%3A72)
-  
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-### 📃 Código - Ambiente de Desenvolvimento 
-
-> * [Código Frontend](https://github.com/cluster-8/esoja-mobile/tree/mobile/frontend)
-> * [Código Backend](https://github.com/cluster-8/esoja-api)
-  
---------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-## 🎲 Modelagem do Banco de Dados
-
-> * [Dicionário de Dados](https://github.com/cluster-8/esoja-mobile/blob/main/Docs/Diciona%CC%81rio-de-dados-eSoja.xlsx)
-> * [Modelo Lógico](https://github.com/cluster-8/esoja-mobile/blob/main/Docs/modelo-logico.png)
-> ![Modelo Lógico](https://github.com/cluster-8/esoja-mobile/blob/main/Docs/modelo-logico.png)
-  
---------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-### 🛠 Tecnologias
-Para a construção do projeto, estão sendo usadas as seguintes ferramentas:
-  
---------------------------------------------------------------------------------------------------------------------------------------------------------------
-  
-#### **Front-end** 
-<img src= "https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
-O React Native é um framework baseado no já aclamado React, desenvolvido pela equipe do Facebook, que possibilita o desenvolvimento de aplicações mobile, tanto para Android, como para iOS, utilizando apenas Javascript.
-  
---------------------------------------------------------------------------------------------------------------------------------------------------------------
-  
-#### **Back-end**  
-<img src= "https://img.shields.io/badge/nestjs-E0234E?style=for-the-badge&logo=nestjs&logoColor=white">
-Nest.js é um framework node.js progressivo feito para criar aplicações de backend eficientes, escaláveis e confiáveis.
-  
---------------------------------------------------------------------------------------------------------------------------------------------------------------
-  
-#### **Data-base** 
-<img src= "https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white">
-PostgreSQL é um sistema gerenciador de banco de dados objeto relacional, desenvolvido como projeto de código aberto.
-  
---------------------------------------------------------------------------------------------------------------------------------------------------------------
-  
-#### **Wireframe** 
-<img src= "https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white">
-Figma é um editor gráfico de vetor e prototipagem de projetos de design baseado principalmente no navegador web, com ferramentas offline adicionais para aplicações desktop para GNU/Linux, macOS e Windows.
-  
---------------------------------------------------------------------------------------------------------------------------------------------------------------
-  
-### 👨‍💻 Equipe
-
-| Aluno(a)         | Função           | GitHub                                                         | LinkedIn                                              |
-| ---------------- | ---------------- | -------------------------------------------------------------- | ----------------------------------------------------- |
-|__Elias Ferreira__  | *Scrum Master*  | [![](https://bit.ly/3f9Xo0P)](https://github.com/elias31072002)| [![](https://bit.ly/2P1ZogM)](https://bit.ly/2QwcT8R) |
-|__Hariel Thums__  | *TechLead Backend* | [![](https://bit.ly/3f9Xo0P)](https://github.com/HarielThums)  | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3f9bjUH) |
-|__Ana Paula__| *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/AnaPaulaSOliveira) | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/ana-paula-santos-de-oliveira-237a401ab) |
-|__Pedro Sousa Lopes__| *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/PedroSousaLopes) | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/pedro-sousa-62bb641a8/) |
-|__Bruno Freire__| *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/brunofreire2001) | [![](https://bit.ly/2P1ZogM)]() |
-|__Vinícius Oliveira__| *Product Owner*| [![](https://bit.ly/3f9Xo0P)](https://github.com/vinicius-hso) | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3fdl0BE) |
-|__Willian Rodrigues__| *TechLead Frontend* | [![](https://bit.ly/3f9Xo0P)](https://github.com/Willian-Rodrigues) | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/willianrsilva/)| 
-|__Luis Verola__| *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/LVerola) | [![](https://bit.ly/2P1ZogM)](http://www.linkedin.com/in/LVerola)| 
-
+1. Instale o JDK (Java Development Kit). Recomendamos utilizar o [JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html). Talvez seja necessário reiniciar o computador para que a instalação seja reconhecida.
+2. Instale o NodeJS. Talvez seja necessário reiniciar o computador para que a instalação seja reconhecida.
+3. Crie a variável de ambiente, para o sistema, chamada ```JAVA_HOME```. Nela terá o caminho em que o JDK está instalado. Exemplo: ```C:\Program Files\Java\jdk-15.0.2```.
+4. Adicione o caminho ```C:\Program Files\Java\jdk-15.0.2\bin``` (não se esqueça de verificar a versão do seu JDK) a uma variável chamada ```Path```, já existente, nas variáveis de sistema. Crie uma nova linha (:warning: cuidado para não alterar os caminhos já existentes :warning:) Esse passo faz com que comandos do Java sejam reconhecidos no terminal.
+5. Digite ```java --version``` no terminal para ver se tudo está configurado corretamente. Caso não funcione mesmo assim, reinicie o computador para ter certeza que tudo foi aplicado. Se mesmo assim não funcionar, verifique se você configurou corretamente as variáveis nos passos anteriores.
+6. Instale o Android Studio para obter o SDK necessário para a execução do *app* em um dispositivo móvel.
+7. Crie uma variável de ambiente para o sistema, chamada de `ANDROID_HOME`. Seu valor deve ser o caminho do SDK do Android dentro do seu computador. Exemplo: `C:\Users\seu-nome-de-usuario\AppData\Local\Android\Sdk`.
+8. Adicione o caminho `C:\Users\seu-nome-de-usuario\AppData\Local\Android\Sdk\platform-tools` a uma variável chamada ```Path```, já existente, nas variáveis de sistema. Crie uma nova linha (:warning: cuidado para não alterar os caminhos já existentes :warning:). Esse passo faz com que o comando `adb devices` seja reconhecido no terminal. Assim, ao conectar o seu celular via USB é possível ver se ele é reconhecido como um dispositivo apto a executar o *app* ou não.
+9. Nas configurações de desenvolvedor do seu dispositivo móvel, ative a opção `Depuração USB` para que o *app* possa ser reconhecido pelo `adb` e possa ser instalado no seu celular via USB. Um dos membros da nossa equipe, devido a personalizações do Android, precisou ativar mais configurações disponíveis sobre a `Instalação via USB` para que o *app* fosse instalado com sucesso. Verifique todas as opções disponíveis nas configurações de desenvolvedor do seu celular.
+10. Abra a pasta `\esoja-mobile\` no Visual Studio Code. Essa pasta é correspondente ao projeto *React Native* do aplicativo *mobile*.
+11. No terminal, execute o comando ```npm install``` para instalar todas as dependências do *app*, talvez seja necessário adicionar ao comando `--legacy-peer-deps` ou `--force`.
+12. Um outro detalhe para que você tenha a experiência completa: é necessário [executar o back-end  das funcionalidades antigas do app em uma nova versão](https://github.com/barbaraport/esoja-api) e o [back-end da nova funcionalidade do app](https://github.com/barbaraport/softtelie-ehsoja/tree/main/src/server/imageRecognition) e inserir no arquivo ```\src\data\services\api.ts``` o IP e a porta do servidor.
+13. Insira as chaves da API do Open Weather no arquivo ```\src\data\services\weather.services.ts```.
+14. O jeito mais simples para executar o aplicativo é via USB. Sendo assim, conecte o seu celular no computador. O celular deve estar desbloqueado.
+15. Certifique-se de que você está na pasta `\esoja-mobile\` e execute o nosso app com o comando ```npm run android``` . O app passará por um processo de *build* e a primeira vez pode demorar um pouco. Quando tudo estiver finalizado, o *app* automaticamente abrirá no seu celular!

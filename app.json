@@ -1,0 +1,22 @@
+{
+  "expo": {
+    "name": "esoja-mobile",
+    "slug": "esoja-mobile",
+    "scheme": "esoja-mobile",
+    "version": "1.0.0",
+    "assetBundlePatterns": ["**/*"],
+    "android": {
+      "package": "com.esojamobile",
+    },
+    "ios": {
+      "bundleIdentifier": "esoja-mobile"
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        "@react-native-firebase/app"
+      ]
+    ]
+  },
+  "name": "esoja-mobile"
+}
