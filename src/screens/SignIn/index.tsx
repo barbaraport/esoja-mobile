@@ -65,7 +65,7 @@ export const SignIn: React.FC<SignInScreenRouteProps> = ({ navigation }) => {
               alignItems: 'center'
             }}
           >
-            <CreateStepSix />
+            <CreatePlotStepSix />
           </SafeAreaView>
         </Container>
       </KeyboardAvoidingView>
