@@ -42,6 +42,7 @@ export const CreatePlotStepSeven: React.FC<
     const { saveStep, getPersistedData } = useSample();
 
   const handleSubmitStepSeven = (data: FieldValues) => {
+    console.log('step 7');
     const sample: any = {
       plantB: {
         grainsPlant1: data.grainsPlant1,
@@ -67,9 +68,10 @@ export const CreatePlotStepSeven: React.FC<
   useEffect(() => {
     getPersistedData().then(data => {
       if (data) {
-        setValue('grainsPlant1', data?.plantB?.grainsPlant1?.toString() || '');
-        setValue('grainsPlant2', data?.plantB?.grainsPlant2?.toString() || '');
-        setValue('description', data?.plantB?.description || '');
+        setValue('plantASize', data?.plantB?.plantASize?.toString() || '');
+        setValue('plantBSize', data?.plantB?.plantBSize?.toString() || '');
+        setValue('plantAStage', data?.plantB?.plantAStage?.toString() || '');
+        setValue('plantBStage', data?.plantB?.plantBStage?.toString() || '');
       }
     });
   }, [getPersistedData, setValue]);

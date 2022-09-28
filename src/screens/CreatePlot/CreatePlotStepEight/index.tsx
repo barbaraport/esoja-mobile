@@ -42,6 +42,7 @@ export const CreatePlotStepEight: React.FC<
       const { saveStep, getPersistedData } = useSample();
 
   const handleSubmitStepEight = (data: FieldValues) => {
+    console.log('step 8');
     const sample: any = {
       plantC: {
         grainsPlant1: data.grainsPlant1,

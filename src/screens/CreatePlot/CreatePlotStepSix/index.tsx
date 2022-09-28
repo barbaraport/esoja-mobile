@@ -27,13 +27,17 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import ImageCropPicker, { ImageOrVideo } from 'react-native-image-crop-picker';
 
 const userLogin = yup.object().shape({
-  grainsPlant1: yup
+  plantASize: yup
     .number()
-    .required('Quantidade é obrigatória')
     .min(1, 'Quantidade de grãos não pode ser "ZERO"'),
-  grainsPlant2: yup
+  plantBSize: yup
     .number()
-    .required('Quantidade é obrigatória')
+    .min(1, 'Quantidade de grãos não pode ser "ZERO"'),
+  plantAStage: yup
+    .string()
+    .min(1, 'Quantidade de grãos não pode ser "ZERO"'),
+  plantBStage: yup
+    .string()
     .min(1, 'Quantidade de grãos não pode ser "ZERO"')
 });
 
@@ -41,6 +45,8 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
   const { saveStep, getPersistedData } = useSample();
 
   const handleSubmitStepFive = (data: FieldValues) => {
+
+    console.log(data);
     const sample: any = {
       plantA: {
         grainsPlant1: data.grainsPlant1,
@@ -51,7 +57,7 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
       sample.plantA.description = data.description;
     }
     saveStep(sample);
-    navigation.navigate('CreatePlotStepSeven');
+    navigation.navigate('Home');
   };
 
   const {
@@ -66,14 +72,17 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
   useEffect(() => {
     getPersistedData().then(data => {
       if (data) {
-        setValue('grainsPlant1', data?.plantA?.grainsPlant1?.toString() || '');
-        setValue('grainsPlant2', data?.plantA?.grainsPlant2?.toString() || '');
-        setValue('description', data?.plantA?.description || '');
+        const dataAny: any = data as any;
+        setValue('plantASize', data?.plantB?.plantASize?.toString() || '');
+        setValue('plantBSize', data?.plantB?.plantBSize?.toString() || '');
+        setValue('plantAStage', data?.plantB?.plantAStage?.toString() || '');
+        setValue('plantBStage', data?.plantB?.plantBStage?.toString() || '');
       }
     });
   }, [getPersistedData, setValue]);
 
-  const [selectedStage, setSelectedStage] = useState();
+  const [selectedStageA, setSelectedStageA] = useState();
+  const [selectedStageB, setSelectedStageB] = useState();
   const [plantAImage, setPlantAImage] = useState<ImageOrVideo>();
   const [plantBImage, setPlantBImage] = useState<ImageOrVideo>();
 
@@ -164,13 +173,13 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
               <TextInput
                 label="plots.size"
                 placeholder={"Altura"}
-                name="size"
+                name="sizeA"
                 control={control}
               />
               <Picker style={{ backgroundColor: 'white' }}
-                selectedValue={selectedStage}
+                selectedValue={selectedStageA}
                 onValueChange={(itemValue, itemIndex) =>
-                  setSelectedStage(itemValue)
+                  setSelectedStageA(itemValue)
                 }>
                 <Picker.Item label="Escolha um estágio" value="default" enabled={false} />
                 <Picker.Item label="Desenvolvimento vegetativo" value="desenvolvimentoVegetativo" />
@@ -224,13 +233,13 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
               <TextInput
                 label="plots.size"
                 placeholder={"Altura"}
-                name="size"
+                name="sizeB"
                 control={control}
               />
               <Picker style={{ backgroundColor: 'white' }}
-                selectedValue={selectedStage}
+                selectedValue={selectedStageB}
                 onValueChange={(itemValue, itemIndex) =>
-                  setSelectedStage(itemValue)
+                  setSelectedStageB(itemValue)
                 }>
                 <Picker.Item label="Escolha um estágio" value="default" enabled={false} />
                 <Picker.Item label="Desenvolvimento vegetativo" value="desenvolvimentoVegetativo" />

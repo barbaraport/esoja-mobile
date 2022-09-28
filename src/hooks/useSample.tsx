@@ -15,21 +15,23 @@ interface Sample {
   metersBetweenPlants?: string;
   plantsPerMeter?: string;
   plantA?: {
-    grainsPlant1?: number;
-    grainsPlant2?: number;
-    description?: string;
+    plantASize?: number;
+    plantBSize?: number;
+    plantAStage?: string;
+    plantBStage?: string;
   };
   plantB?: {
-    grainsPlant1?: number;
-    grainsPlant2?: number;
-    description?: string;
+    plantASize?: number;
+    plantBSize?: number;
+    plantAStage?: string;
+    plantBStage?: string;
   };
   plantC?: {
-    grainsPlant1?: number;
-    grainsPlant2?: number;
-    description?: string;
+    plantASize?: number;
+    plantBSize?: number;
+    plantAStage?: string;
+    plantBStage?: string;
   };
-  photo?: string;
   cultiveId?: string;
 }
 
@@ -80,11 +82,9 @@ const SampleProvider: React.FC<SampleContextProps> = ({ children }) => {
   const createSample = useCallback(
     async (photoUri: string) => {
       const fullData: Sample = await getPersistedData();
-      fullData.photo = await pictureUpload(photoUri, 'sample');
       const updatePlot = {
         plantsPerMeter: fullData?.plantsPerMeter,
         metersBetweenPlants: (Number(fullData?.metersBetweenPlants) || 0) / 100,
-        photo: fullData?.photo
       };
       await api.put(
         `/cultive/sample-information/${fullData?.cultiveId}`,

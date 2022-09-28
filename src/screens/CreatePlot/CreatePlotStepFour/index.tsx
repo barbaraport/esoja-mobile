@@ -50,6 +50,7 @@ export const CreatePlotStepFour: React.FC<
 
   const handleSubmitStepFour = (data: FieldValues) => {
     saveStep(data);
+    console.log('step 4');
     navigation.navigate('CreatePlotStepFive');
   };
 
