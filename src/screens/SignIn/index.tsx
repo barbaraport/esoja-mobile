@@ -1,5 +1,6 @@
 import { FontAwesome5 } from '@expo/vector-icons';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useNavigation, useRoute } from '@react-navigation/core';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Keyboard } from 'react-native';
@@ -12,6 +13,8 @@ import { translate } from '../../data/I18n';
 import { SignInScreenRouteProps } from '../../data/routes/auth';
 import { useAuth } from '../../hooks/useAuth';
 import { RFFontSize, RFHeight, RFWidth } from '../../utils/getResponsiveSizes';
+import { CreatePlotStepFive } from '../CreatePlot/CreatePlotStepFive';
+import { CreatePlotStepSix, CreateStepSix } from '../CreatePlot/CreatePlotStepSix';
 import {
   Container,
   FormContainer,
@@ -48,7 +51,8 @@ export const SignIn: React.FC<SignInScreenRouteProps> = ({ navigation }) => {
   });
   const { isLoading, signInWithPassword, signInWithGoogle, sigInWithFacebook } =
     useAuth();
-
+  navigation = useNavigation();
+  const route = useRoute();
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <KeyboardAvoidingView>
@@ -61,82 +65,7 @@ export const SignIn: React.FC<SignInScreenRouteProps> = ({ navigation }) => {
               alignItems: 'center'
             }}
           >
-            <LogoImage />
-
-            <WelcomeText>{translate('signIn.welcome')}</WelcomeText>
-
-            <WelcomeCaptionText>
-              {translate('signIn.signInMessage')}
-            </WelcomeCaptionText>
-
-            <FormContainer>
-              <TextInput
-                placeholder={translate('signIn.emailPlaceholder')}
-                icon="mail"
-                keyboardType="email-address"
-                autoCapitalize="none"
-                name="email"
-                control={control}
-              />
-
-              <TextInput
-                placeholder={translate('signIn.passwordPlaceholder')}
-                icon="lock"
-                secureTextEntry
-                name="password"
-                control={control}
-              />
-
-              <Button
-                title={translate('signIn.signIn')}
-                onPress={handleSubmit(signInWithPassword)}
-                showLoadingIndicator={isLoading}
-              />
-            </FormContainer>
-
-            <SocialSignInText>
-              {translate('signIn.socialSignIn')}
-            </SocialSignInText>
-
-            <SocialSignInButtonsContainer>
-              <SocialSignInButton network="google" onPress={signInWithGoogle}>
-                <FontAwesome5
-                  name="google"
-                  size={RFFontSize(16)}
-                  color="#FFFFFF"
-                />
-                <SocialSignInButtonText network="google">
-                  Google
-                </SocialSignInButtonText>
-              </SocialSignInButton>
-
-              <SocialSignInButton
-                network="facebook"
-                style={{ marginLeft: RFWidth(8) }}
-                onPress={sigInWithFacebook}
-              >
-                <FontAwesome5
-                  name="facebook-f"
-                  size={RFFontSize(16)}
-                  color="#FFFFFF"
-                />
-                <SocialSignInButtonText network="facebook">
-                  Facebook
-                </SocialSignInButtonText>
-              </SocialSignInButton>
-            </SocialSignInButtonsContainer>
-
-            <SignUpButtonContainer>
-              <SignUpHelpText>
-                {translate('signIn.signUpMessage')}
-              </SignUpHelpText>
-
-              <SignUpButton onPress={() => navigation.navigate('SignUp')}>
-                <SignUpButtonText>
-                  {translate('signIn.signUp')}
-                </SignUpButtonText>
-              </SignUpButton>
-            </SignUpButtonContainer>
+            <CreateStepSix />
           </SafeAreaView>
         </Container>
       </KeyboardAvoidingView>
