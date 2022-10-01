@@ -122,6 +122,8 @@ async function registerSample(data: any) {
           ]
         };
 
+        console.log(newSample);
+
         await api.post('/sample', newSample);
 
         await AsyncStorage.removeItem('@esoja:sample');
@@ -239,6 +241,76 @@ export const CreatePlotStepNine: React.FC<
                 <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantA?.plantBImage!)}>
                     <Image source={analyzedImages[1]} style={{ width: 128, height: 128 }} />
+                  </TouchableOpacity>
+                  <Text style={{fontWeight: 'bold', marginTop: 10}}>Analisada</Text>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
+            <Text style={{fontWeight: 'bold', fontSize: 30, marginBottom: 10}}>2ª Amostra</Text>
+            <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
+              <Text style={{fontWeight: 'bold', fontSize: 24}}>Planta A</Text>
+              <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-between', marginBottom: 30}}>
+                <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
+                  <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantA?.plantAImage!)}>
+                    <Image source={fullData?.plantA?.plantAImage!} style={{ width: 128, height: 128 }} />
+                  </TouchableOpacity>
+                  <Text style={{fontWeight: 'bold', marginTop: 10}}>Original</Text>
+                </View>
+                <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
+                  <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantA?.plantAImage!)}>
+                    <Image source={analyzedImages[2]} style={{ width: 128, height: 128 }} />
+                  </TouchableOpacity>
+                  <Text style={{fontWeight: 'bold', marginTop: 10}}>Analisada</Text>
+                </View>
+              </View>
+              <Text style={{fontWeight: 'bold', fontSize: 24}}>Planta B</Text>
+              <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-between', marginBottom: 30}}>
+                <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
+                  <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantA?.plantBImage!)}>
+                    <Image source={fullData?.plantA?.plantBImage!} style={{ width: 128, height: 128 }} />
+                  </TouchableOpacity>
+                  <Text style={{fontWeight: 'bold', marginTop: 10}}>Original</Text>
+                </View>
+                <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
+                  <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantA?.plantBImage!)}>
+                    <Image source={analyzedImages[3]} style={{ width: 128, height: 128 }} />
+                  </TouchableOpacity>
+                  <Text style={{fontWeight: 'bold', marginTop: 10}}>Analisada</Text>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
+            <Text style={{fontWeight: 'bold', fontSize: 30, marginBottom: 10}}>3ª Amostra</Text>
+            <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
+              <Text style={{fontWeight: 'bold', fontSize: 24}}>Planta A</Text>
+              <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-between', marginBottom: 30}}>
+                <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
+                  <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantA?.plantAImage!)}>
+                    <Image source={fullData?.plantA?.plantAImage!} style={{ width: 128, height: 128 }} />
+                  </TouchableOpacity>
+                  <Text style={{fontWeight: 'bold', marginTop: 10}}>Original</Text>
+                </View>
+                <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
+                  <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantA?.plantAImage!)}>
+                    <Image source={analyzedImages[4]} style={{ width: 128, height: 128 }} />
+                  </TouchableOpacity>
+                  <Text style={{fontWeight: 'bold', marginTop: 10}}>Analisada</Text>
+                </View>
+              </View>
+              <Text style={{fontWeight: 'bold', fontSize: 24}}>Planta B</Text>
+              <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-between', marginBottom: 30}}>
+                <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
+                  <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantA?.plantBImage!)}>
+                    <Image source={fullData?.plantA?.plantBImage!} style={{ width: 128, height: 128 }} />
+                  </TouchableOpacity>
+                  <Text style={{fontWeight: 'bold', marginTop: 10}}>Original</Text>
+                </View>
+                <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
+                  <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantA?.plantBImage!)}>
+                    <Image source={analyzedImages[5]} style={{ width: 128, height: 128 }} />
                   </TouchableOpacity>
                   <Text style={{fontWeight: 'bold', marginTop: 10}}>Analisada</Text>
                 </View>
