@@ -1,8 +1,8 @@
 export default {
   pt: {
     CreatePlotStepNine: {
-      title: 'Imagem das amostras',
-      subtitle: 'Tire uma foto de todas as plantas usadas nas amostras',
+      title: 'Confirmar registro',
+      subtitle: 'Verifique se o resultado das analises estão bons e confirme o registro',
       imagePlaceholder: 'Adicionar imagem',
       imageUpdatePictureLabel: 'Alterar imagem',
       finishButton: 'Finalizar'
@@ -10,8 +10,8 @@ export default {
   },
   en: {
     CreatePlotStepNine: {
-      title: 'Picture of the photos',
-      subtitle: 'Take a photo of all the plants used in the samples',
+      title: 'Confirm the registration',
+      subtitle: 'Check if the result of the analyzes are good and confirm the registration',
       imagePlaceholder: 'Add image',
       imageUpdatePictureLabel: 'Change image',
       finishButton: 'Finish'

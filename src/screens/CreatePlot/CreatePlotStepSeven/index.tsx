@@ -9,7 +9,7 @@ import { StepIndicator } from '../../../components/StepIndicator';
 import { TextInput } from '../../../components/TextInput';
 import Title from '../../../components/Title';
 import { CreatePlotStepSevenScreenRouteProps } from '../../../data/routes/app';
-import { useSample } from '../../../hooks/useSample';
+import { Sample, useSample } from '../../../hooks/useSample';
 import { translate } from '../../../data/I18n';
 import PlantIcon from '../../../assets/plot-steps-images/StepTwo.png';
 import {
@@ -41,18 +41,18 @@ export const CreatePlotStepSeven: React.FC<
 > = ({ navigation }) => {
     const { saveStep, getPersistedData } = useSample();
 
-  const handleSubmitStepSeven = (data: FieldValues) => {
-    console.log('step 7');
-    const sample: any = {
-      plantB: {
-        grainsPlant1: data.grainsPlant1,
-        grainsPlant2: data.grainsPlant2
-      }
+  const handleSubmitStepSeven = () => {
+    const sample: Sample['plantB'] = {
+      plantAImage: plantAImage,
+      plantASize: plantASize,
+      plantAStage: plantAStage,
+      plantBImage: plantBImage,
+      plantBSize: plantBSize,
+      plantBStage: plantBStage
     };
-    if (data?.description) {
-      sample.plantB.description = data.description;
-    }
-    saveStep(sample);
+
+    saveStep(sample as any);
+
     navigation.navigate('CreatePlotStepEight');
   };
 
@@ -68,17 +68,18 @@ export const CreatePlotStepSeven: React.FC<
   useEffect(() => {
     getPersistedData().then(data => {
       if (data) {
-        setValue('plantASize', data?.plantB?.plantASize?.toString() || '');
-        setValue('plantBSize', data?.plantB?.plantBSize?.toString() || '');
-        setValue('plantAStage', data?.plantB?.plantAStage?.toString() || '');
-        setValue('plantBStage', data?.plantB?.plantBStage?.toString() || '');
+        setPlantASize(data?.plantB?.plantASize! as number);
+        setPlantBSize(data?.plantB?.plantBSize! as number);
       }
     });
   }, [getPersistedData, setValue]);
 
-  const [selectedStage, setSelectedStage] = useState();
   const [plantAImage, setPlantAImage] = useState<ImageOrVideo>();
+  const [plantASize, setPlantASize] = useState<number>(0);
+  const [plantAStage, setPlantAStage] = useState<string>('');
   const [plantBImage, setPlantBImage] = useState<ImageOrVideo>();
+  const [plantBSize, setPlantBSize] = useState<number>(0);
+  const [plantBStage, setPlantBStage] = useState<string>('');
 
   const pickPictureA = () => {
     ImageCropPicker.openPicker({
@@ -170,9 +171,9 @@ export const CreatePlotStepSeven: React.FC<
                 control={control}
               />
               <Picker style={{ backgroundColor: 'white' }}
-                selectedValue={selectedStage}
+                selectedValue={plantAStage}
                 onValueChange={(itemValue, itemIndex) =>
-                  setSelectedStage(itemValue)
+                  setPlantAStage(itemValue)
                 }>
                 <Picker.Item label="Escolha um estágio" value="default" enabled={false} />
                 <Picker.Item label="Desenvolvimento vegetativo" value="desenvolvimentoVegetativo" />
@@ -230,9 +231,9 @@ export const CreatePlotStepSeven: React.FC<
                 control={control}
               />
               <Picker style={{ backgroundColor: 'white' }}
-                selectedValue={selectedStage}
+                selectedValue={plantBStage}
                 onValueChange={(itemValue, itemIndex) =>
-                  setSelectedStage(itemValue)
+                  setPlantBStage(itemValue)
                 }>
                 <Picker.Item label="Escolha um estágio" value="default" enabled={false} />
                 <Picker.Item label="Desenvolvimento vegetativo" value="desenvolvimentoVegetativo" />
@@ -256,7 +257,7 @@ export const CreatePlotStepSeven: React.FC<
           <NextStepButton>
             <Button
               title={translate('CreatePlotStepSeven.buttonTitle')}
-              onPress={handleSubmit(handleSubmitStepSeven)}
+              onPress={handleSubmitStepSeven}
             />
           </NextStepButton>
         </FormContainer>

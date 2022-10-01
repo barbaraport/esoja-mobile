@@ -1,10 +1,9 @@
 import React from 'react';
-import { Sample } from '../../data/Model/Sample';
 import { SampleData, SampleInformationContainer, SampleName } from './styles';
 import { translate } from '../../data/I18n';
 
 interface SampleCardProps {
-  sample: Sample;
+  sample: any;
 }
 
 export const SampleCard: React.FC<SampleCardProps> = ({ sample }) => {

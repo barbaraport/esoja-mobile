@@ -10,7 +10,7 @@ import { StepIndicator } from '../../../components/StepIndicator';
 import { TextInput } from '../../../components/TextInput';
 import Title from '../../../components/Title';
 import { CreatePlotStepFiveScreenRouteProps, CreatePlotStepSixScreenRouteProps } from '../../../data/routes/app';
-import { useSample } from '../../../hooks/useSample';
+import { Sample, useSample } from '../../../hooks/useSample';
 import { translate } from '../../../data/I18n';
 import {
   Container,
@@ -44,19 +44,18 @@ const userLogin = yup.object().shape({
 export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({ navigation }) => {
   const { saveStep, getPersistedData } = useSample();
 
-  const handleSubmitStepFive = (data: FieldValues) => {
-
-    console.log(data);
-    const sample: any = {
-      plantA: {
-        grainsPlant1: data.grainsPlant1,
-        grainsPlant2: data.grainsPlant2
-      }
+  const handleSubmitStepFive = () => {
+    const sample: Sample['plantB'] = {
+      plantAImage: plantAImage,
+      plantASize: plantASize,
+      plantAStage: plantAStage,
+      plantBImage: plantBImage,
+      plantBSize: plantBSize,
+      plantBStage: plantBStage
     };
-    if (data?.description) {
-      sample.plantA.description = data.description;
-    }
-    saveStep(sample);
+
+    saveStep(sample as any);
+
     navigation.navigate('Home');
   };
 
@@ -72,19 +71,18 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
   useEffect(() => {
     getPersistedData().then(data => {
       if (data) {
-        const dataAny: any = data as any;
-        setValue('plantASize', data?.plantB?.plantASize?.toString() || '');
-        setValue('plantBSize', data?.plantB?.plantBSize?.toString() || '');
-        setValue('plantAStage', data?.plantB?.plantAStage?.toString() || '');
-        setValue('plantBStage', data?.plantB?.plantBStage?.toString() || '');
+        setPlantASize(data?.plantA?.plantASize! as number);
+        setPlantBSize(data?.plantA?.plantBSize! as number);
       }
     });
   }, [getPersistedData, setValue]);
 
-  const [selectedStageA, setSelectedStageA] = useState();
-  const [selectedStageB, setSelectedStageB] = useState();
   const [plantAImage, setPlantAImage] = useState<ImageOrVideo>();
+  const [plantASize, setPlantASize] = useState<number>(0);
+  const [plantAStage, setPlantAStage] = useState<string>('');
   const [plantBImage, setPlantBImage] = useState<ImageOrVideo>();
+  const [plantBSize, setPlantBSize] = useState<number>(0);
+  const [plantBStage, setPlantBStage] = useState<string>('');
 
   const pickPictureA = () => {
     ImageCropPicker.openPicker({
@@ -177,9 +175,9 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
                 control={control}
               />
               <Picker style={{ backgroundColor: 'white' }}
-                selectedValue={selectedStageA}
+                selectedValue={plantAStage}
                 onValueChange={(itemValue, itemIndex) =>
-                  setSelectedStageA(itemValue)
+                  setPlantAStage(itemValue)
                 }>
                 <Picker.Item label="Escolha um estágio" value="default" enabled={false} />
                 <Picker.Item label="Desenvolvimento vegetativo" value="desenvolvimentoVegetativo" />
@@ -237,9 +235,9 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
                 control={control}
               />
               <Picker style={{ backgroundColor: 'white' }}
-                selectedValue={selectedStageB}
+                selectedValue={plantBStage}
                 onValueChange={(itemValue, itemIndex) =>
-                  setSelectedStageB(itemValue)
+                  setPlantAStage(itemValue)
                 }>
                 <Picker.Item label="Escolha um estágio" value="default" enabled={false} />
                 <Picker.Item label="Desenvolvimento vegetativo" value="desenvolvimentoVegetativo" />
@@ -263,7 +261,7 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
           <NextStepButton>
             <Button
               title={translate('CreatePlotStepFive.continueButton')}
-              onPress={handleSubmit(handleSubmitStepFive)}
+              onPress={handleSubmitStepFive}
             />
           </NextStepButton>
         </FormContainer>

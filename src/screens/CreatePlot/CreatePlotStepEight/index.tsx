@@ -9,7 +9,7 @@ import { StepIndicator } from '../../../components/StepIndicator';
 import { TextInput } from '../../../components/TextInput';
 import Title from '../../../components/Title';
 import { CreatePlotStepEightScreenRouteProps } from '../../../data/routes/app';
-import { useSample } from '../../../hooks/useSample';
+import { Sample, useSample } from '../../../hooks/useSample';
 import { translate } from '../../../data/I18n';
 import PlantIcon from '../../../assets/plot-steps-images/StepTwo.png';
 import {
@@ -41,18 +41,18 @@ export const CreatePlotStepEight: React.FC<
 > = ({ navigation }) => {
       const { saveStep, getPersistedData } = useSample();
 
-  const handleSubmitStepEight = (data: FieldValues) => {
-    console.log('step 8');
-    const sample: any = {
-      plantC: {
-        grainsPlant1: data.grainsPlant1,
-        grainsPlant2: data.grainsPlant2
-      }
+  const handleSubmitStepEight = () => {
+    const sample: Sample['plantC'] = {
+      plantAImage: plantAImage,
+      plantASize: plantASize,
+      plantAStage: plantAStage,
+      plantBImage: plantBImage,
+      plantBSize: plantBSize,
+      plantBStage: plantBStage
     };
-    if (data?.description) {
-      sample.plantC.description = data.description;
-    }
-    saveStep(sample);
+
+    saveStep(sample as any);
+
     navigation.navigate('CreatePlotStepNine');
   };
 
@@ -68,16 +68,18 @@ export const CreatePlotStepEight: React.FC<
   useEffect(() => {
     getPersistedData().then(data => {
       if (data) {
-        setValue('grainsPlant1', data?.plantC?.grainsPlant1?.toString() || '');
-        setValue('grainsPlant2', data?.plantC?.grainsPlant2?.toString() || '');
-        setValue('description', data?.plantC?.description || '');
+        setPlantASize(data?.plantC?.plantASize! as number);
+        setPlantBSize(data?.plantC?.plantBSize! as number);
       }
     });
   }, [getPersistedData, setValue]);
 
-  const [selectedStage, setSelectedStage] = useState();
   const [plantAImage, setPlantAImage] = useState<ImageOrVideo>();
+  const [plantASize, setPlantASize] = useState<number>(0);
+  const [plantAStage, setPlantAStage] = useState<string>('');
   const [plantBImage, setPlantBImage] = useState<ImageOrVideo>();
+  const [plantBSize, setPlantBSize] = useState<number>(0);
+  const [plantBStage, setPlantBStage] = useState<string>('');
 
 const pickPictureA = () => {
     ImageCropPicker.openPicker({
@@ -169,9 +171,9 @@ const pickPictureA = () => {
                 control={control}
               />
               <Picker style={{ backgroundColor: 'white' }}
-                selectedValue={selectedStage}
+                selectedValue={plantAStage}
                 onValueChange={(itemValue, itemIndex) =>
-                  setSelectedStage(itemValue)
+                  setPlantAStage(itemValue)
                 }>
                 <Picker.Item label="Escolha um estágio" value="default" enabled={false} />
                 <Picker.Item label="Desenvolvimento vegetativo" value="desenvolvimentoVegetativo" />
@@ -229,9 +231,9 @@ const pickPictureA = () => {
                 control={control}
               />
               <Picker style={{ backgroundColor: 'white' }}
-                selectedValue={selectedStage}
+                selectedValue={plantBStage}
                 onValueChange={(itemValue, itemIndex) =>
-                  setSelectedStage(itemValue)
+                  setPlantBStage(itemValue)
                 }>
                 <Picker.Item label="Escolha um estágio" value="default" enabled={false} />
                 <Picker.Item label="Desenvolvimento vegetativo" value="desenvolvimentoVegetativo" />
@@ -255,7 +257,7 @@ const pickPictureA = () => {
           <NextStepButton>
             <Button
               title="Continuar"
-              onPress={handleSubmit(handleSubmitStepEight)}
+              onPress={handleSubmitStepEight}
             />
           </NextStepButton>
         </FormContainer>

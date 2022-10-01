@@ -5,32 +5,39 @@ import React, {
   useCallback,
   useContext,
   useMemo,
-  useState
+  useState,
 } from 'react';
 import { FieldValues } from 'react-hook-form';
+import { ImageSourcePropType } from 'react-native';
 import { api } from '../data/services/api';
 import { useUpload } from './useUpload';
 
-interface Sample {
+export interface Sample {
   metersBetweenPlants?: string;
   plantsPerMeter?: string;
   plantA?: {
     plantASize?: number;
-    plantBSize?: number;
     plantAStage?: string;
+    plantAImage?: ImageSourcePropType;
+    plantBSize?: number;
     plantBStage?: string;
+    plantBImage?: ImageSourcePropType;
   };
   plantB?: {
     plantASize?: number;
-    plantBSize?: number;
     plantAStage?: string;
+    plantAImage?: ImageSourcePropType;
+    plantBSize?: number;
     plantBStage?: string;
+    plantBImage?: ImageSourcePropType;
   };
   plantC?: {
     plantASize?: number;
-    plantBSize?: number;
     plantAStage?: string;
+    plantAImage?: ImageSourcePropType;
+    plantBSize?: number;
     plantBStage?: string;
+    plantBImage?: ImageSourcePropType;
   };
   cultiveId?: string;
 }
