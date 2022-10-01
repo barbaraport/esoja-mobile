@@ -134,6 +134,10 @@ async function registerSample(data: any) {
       return true;
 }
 
+async function analyzeImages(images: Array<ImageSourcePropType>) {
+  return images;
+}
+
 export const CreatePlotStepNine: React.FC<
   CreatePlotStepNineScreenRouteProps
 > = ({ navigation }) => {
@@ -141,6 +145,7 @@ export const CreatePlotStepNine: React.FC<
     const [loading, setLoading] = useState(false);
     const [imageToVisualize, setImageToVisualize] = useState<ImageSourcePropType | null>(null);
     const [fullData, setFullData] = useState<Sample | null>(null);
+    const [analyzedImages, setAnalyzedImages] = useState<Array<ImageSourcePropType>>([]);
   
     const { getPersistedData } = useSample();
 
@@ -148,6 +153,21 @@ export const CreatePlotStepNine: React.FC<
       getPersistedData().
         then(fullData => {
           setFullData(fullData as Sample);
+
+          const imagesToAnalyze = [
+            fullData?.plantA?.plantAImage!,
+            fullData?.plantA?.plantBImage!,
+            fullData?.plantB?.plantAImage!,
+            fullData?.plantB?.plantBImage!,
+            fullData?.plantC?.plantAImage!,
+            fullData?.plantC?.plantBImage!,
+          ];
+
+          analyzeImages(imagesToAnalyze).then(
+            result => {
+              setAnalyzedImages(result);
+            }
+          );
         });
     }, []);
 
@@ -197,13 +217,13 @@ export const CreatePlotStepNine: React.FC<
               <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-between', marginBottom: 30}}>
                 <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantA?.plantAImage!)}>
-                    <Image source={'' as any} style={{ width: 128, height: 128 }} />
+                    <Image source={fullData?.plantA?.plantAImage!} style={{ width: 128, height: 128 }} />
                   </TouchableOpacity>
                   <Text style={{fontWeight: 'bold', marginTop: 10}}>Original</Text>
                 </View>
                 <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantA?.plantAImage!)}>
-                    <Image source={'' as any} style={{ width: 128, height: 128 }} />
+                    <Image source={analyzedImages[0]} style={{ width: 128, height: 128 }} />
                   </TouchableOpacity>
                   <Text style={{fontWeight: 'bold', marginTop: 10}}>Analisada</Text>
                 </View>
@@ -212,13 +232,13 @@ export const CreatePlotStepNine: React.FC<
               <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-between', marginBottom: 30}}>
                 <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantA?.plantBImage!)}>
-                    <Image source={'' as any} style={{ width: 128, height: 128 }} />
+                    <Image source={fullData?.plantA?.plantBImage!} style={{ width: 128, height: 128 }} />
                   </TouchableOpacity>
                   <Text style={{fontWeight: 'bold', marginTop: 10}}>Original</Text>
                 </View>
                 <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantA?.plantBImage!)}>
-                    <Image source={'' as any} style={{ width: 128, height: 128 }} />
+                    <Image source={analyzedImages[1]} style={{ width: 128, height: 128 }} />
                   </TouchableOpacity>
                   <Text style={{fontWeight: 'bold', marginTop: 10}}>Analisada</Text>
                 </View>
