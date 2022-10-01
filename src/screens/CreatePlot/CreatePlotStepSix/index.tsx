@@ -237,7 +237,7 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
               <Picker style={{ backgroundColor: 'white' }}
                 selectedValue={plantBStage}
                 onValueChange={(itemValue, itemIndex) =>
-                  setPlantAStage(itemValue)
+                  setPlantBStage(itemValue)
                 }>
                 <Picker.Item label="Escolha um estágio" value="default" enabled={false} />
                 <Picker.Item label="Desenvolvimento vegetativo" value="desenvolvimentoVegetativo" />
