@@ -16,16 +16,17 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ImageDisplayer } from '../../../components/ImageDisplayer';
 
 async function registerSample(data: any) {
+  console.log('registering sample');
       const updatePlot = {
         plantsPerMeter: data?.plantsPerMeter,
         metersBetweenPlants: (Number(data?.metersBetweenPlants) || 0) / 100,
       };
 
       try {
-        await api.put(
-          `/cultive/sample-information/${data?.cultiveId}`,
-          updatePlot
-        );
+        // await api.put(
+        //   `/cultive/sample-information/${data?.cultiveId}`,
+        //   updatePlot
+        // );
 
         const newSample = {
           cultiveId: data?.cultiveId,
@@ -36,11 +37,12 @@ async function registerSample(data: any) {
           ]
         };
 
+        console.log(updatePlot);
         console.log(newSample);
 
-        await api.post('/sample', newSample);
+        //await api.post('/sample', newSample);
 
-        await AsyncStorage.removeItem('@esoja:sample');
+        //await AsyncStorage.removeItem('@esoja:sample');
       } catch (error) {
         console.error(error);
 
@@ -90,6 +92,7 @@ export const CreatePlotStepNine: React.FC<
     const handleSubmitStepNine = async () => {
       setLoading(true);
 
+      console.log('registering');
       const success = await registerSample(fullData);
 
       if (success === true) {
