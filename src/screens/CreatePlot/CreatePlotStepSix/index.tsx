@@ -54,9 +54,9 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
       plantBStage: plantBStage
     };
 
-    saveStep(sample as any);
+    saveStep(sample);
 
-    navigation.navigate('Home');
+    navigation.navigate('CreatePlotStepSeven');
   };
 
   const {

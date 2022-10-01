@@ -51,7 +51,7 @@ export const CreatePlotStepSeven: React.FC<
       plantBStage: plantBStage
     };
 
-    saveStep(sample as any);
+    saveStep(sample);
 
     navigation.navigate('CreatePlotStepEight');
   };

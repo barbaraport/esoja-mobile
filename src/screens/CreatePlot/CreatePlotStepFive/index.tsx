@@ -18,7 +18,6 @@ export const CreatePlotStepFive: React.FC<
   CreatePlotStepFiveScreenRouteProps
 > = ({ navigation }) => {
   const handleSubmitStepFive = () => {
-    console.log('step 5');
     navigation.navigate('CreatePlotStepSix');
   };
 
