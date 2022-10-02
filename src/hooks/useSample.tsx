@@ -16,26 +16,26 @@ export interface Sample {
   metersBetweenPlants?: string;
   plantsPerMeter?: string;
   plantA?: {
-    plantASize?: number;
+    plantASize?: string;
     plantAStage?: string;
     plantAImage?: ImageSourcePropType;
-    plantBSize?: number;
+    plantBSize?: string;
     plantBStage?: string;
     plantBImage?: ImageSourcePropType;
   };
   plantB?: {
-    plantASize?: number;
+    plantASize?: string;
     plantAStage?: string;
     plantAImage?: ImageSourcePropType;
-    plantBSize?: number;
+    plantBSize?: string;
     plantBStage?: string;
     plantBImage?: ImageSourcePropType;
   };
   plantC?: {
-    plantASize?: number;
+    plantASize?: string;
     plantAStage?: string;
     plantAImage?: ImageSourcePropType;
-    plantBSize?: number;
+    plantBSize?: string;
     plantBStage?: string;
     plantBImage?: ImageSourcePropType;
   };

@@ -70,17 +70,17 @@ export const CreatePlotStepEight: React.FC<
   useEffect(() => {
     getPersistedData().then(data => {
       if (data) {
-        setPlantASize(data?.plantC?.plantASize! as number);
-        setPlantBSize(data?.plantC?.plantBSize! as number);
+        setPlantASize(data?.plantC?.plantASize!);
+        setPlantBSize(data?.plantC?.plantBSize!);
       }
     });
   }, [getPersistedData, setValue]);
 
   const [plantAImage, setPlantAImage] = useState<ImageOrVideo>();
-  const [plantASize, setPlantASize] = useState<number>(0);
+  const [plantASize, setPlantASize] = useState<string>('');
   const [plantAStage, setPlantAStage] = useState<string>('');
   const [plantBImage, setPlantBImage] = useState<ImageOrVideo>();
-  const [plantBSize, setPlantBSize] = useState<number>(0);
+  const [plantBSize, setPlantBSize] = useState<string>('');
   const [plantBStage, setPlantBStage] = useState<string>('');
 
 const pickPictureA = () => {
@@ -170,7 +170,7 @@ const pickPictureA = () => {
                 label="plots.size"
                 placeholder={"Altura"}
                 name="size"
-                control={control}
+                onChangeText={(text) => setPlantASize(text)}
               />
               <Picker style={{ backgroundColor: 'white' }}
                 selectedValue={plantAStage}
@@ -230,7 +230,7 @@ const pickPictureA = () => {
                 label="plots.size"
                 placeholder={"Altura"}
                 name="size"
-                control={control}
+                onChangeText={(text) => setPlantBSize(text)}
               />
               <Picker style={{ backgroundColor: 'white' }}
                 selectedValue={plantBStage}
