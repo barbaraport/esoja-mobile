@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Control, useController } from 'react-hook-form';
+import { Control, FieldValues, useController, UseControllerReturn } from 'react-hook-form';
 import { TextInputProps as RNTextInputProps } from 'react-native';
 import { useTheme } from 'styled-components';
 import { translate } from '../../data/I18n';
@@ -40,11 +40,16 @@ export const TextInput: React.FC<TextInputProps> = ({
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
 
-  const { field } = useController({
-    name,
-    control,
-    defaultValue
-  });
+  let field: UseControllerReturn<FieldValues, string> | undefined= undefined;
+
+  if (control) {
+    field = useController({
+      name,
+      control,
+      defaultValue
+    });
+  }
+
 
   const handleInputFocus = useCallback(() => {
     setIsFocused(true);
@@ -79,18 +84,18 @@ export const TextInput: React.FC<TextInputProps> = ({
           />
         )}
 
-        {control ?
+        {field ?
         <RNTextInput
           {...rest}
           editable={!disabled}
           placeholder={rest.placeholder}
-          value={field.value}
+          value={field.field.value}
           ref={inputElementRef}
           keyboardAppearance="dark"
           placeholderTextColor={theme.colors.details}
           onFocus={handleInputFocus}
-          onBlur={() => handleInputBlur(field.value)}
-          onChangeText={field.onChange}
+          onBlur={() => handleInputBlur(field!.field.value)}
+          onChangeText={field.field.onChange}
         />
           :
         <RNTextInput
