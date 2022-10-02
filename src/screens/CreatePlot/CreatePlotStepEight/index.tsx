@@ -42,13 +42,15 @@ export const CreatePlotStepEight: React.FC<
       const { saveStep, getPersistedData } = useSample();
 
   const handleSubmitStepEight = () => {
-    const sample: Sample['plantC'] = {
-      plantAImage: plantAImage,
-      plantASize: plantASize,
-      plantAStage: plantAStage,
-      plantBImage: plantBImage,
-      plantBSize: plantBSize,
-      plantBStage: plantBStage
+    const sample: Sample =  {
+      plantC: {
+        plantAImage: plantAImage,
+        plantASize: plantASize,
+        plantAStage: plantAStage,
+        plantBImage: plantBImage,
+        plantBSize: plantBSize,
+        plantBStage: plantBStage
+      }
     };
 
     saveStep(sample as any);

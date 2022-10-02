@@ -42,13 +42,15 @@ export const CreatePlotStepSeven: React.FC<
     const { saveStep, getPersistedData } = useSample();
 
   const handleSubmitStepSeven = () => {
-    const sample: Sample['plantB'] = {
-      plantAImage: plantAImage,
-      plantASize: plantASize,
-      plantAStage: plantAStage,
-      plantBImage: plantBImage,
-      plantBSize: plantBSize,
-      plantBStage: plantBStage
+    const sample: Sample =  {
+      plantB: {
+        plantAImage: plantAImage,
+        plantASize: plantASize,
+        plantAStage: plantAStage,
+        plantBImage: plantBImage,
+        plantBSize: plantBSize,
+        plantBStage: plantBStage
+      }
     };
 
     saveStep(sample);

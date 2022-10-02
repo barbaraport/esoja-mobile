@@ -45,13 +45,15 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
   const { saveStep, getPersistedData } = useSample();
 
   const handleSubmitStepFive = () => {
-    const sample: Sample['plantB'] = {
-      plantAImage: plantAImage,
-      plantASize: plantASize,
-      plantAStage: plantAStage,
-      plantBImage: plantBImage,
-      plantBSize: plantBSize,
-      plantBStage: plantBStage
+    const sample: Sample =  {
+      plantA: {
+        plantAImage: plantAImage,
+        plantASize: plantASize,
+        plantAStage: plantAStage,
+        plantBImage: plantBImage,
+        plantBSize: plantBSize,
+        plantBStage: plantBStage
+      }
     };
 
     saveStep(sample);
