@@ -79,6 +79,7 @@ export const TextInput: React.FC<TextInputProps> = ({
           />
         )}
 
+        {control ?
         <RNTextInput
           {...rest}
           editable={!disabled}
@@ -91,6 +92,17 @@ export const TextInput: React.FC<TextInputProps> = ({
           onBlur={() => handleInputBlur(field.value)}
           onChangeText={field.onChange}
         />
+          :
+        <RNTextInput
+          {...rest}
+          editable={!disabled}
+          placeholder={rest.placeholder}
+          ref={inputElementRef}
+          keyboardAppearance="dark"
+          placeholderTextColor={theme.colors.details}
+          onFocus={handleInputFocus}
+        />
+        }
       </InnerContainer>
 
       {errorMessage && <ErrorMessage>{translate(errorMessage)}</ErrorMessage>}
