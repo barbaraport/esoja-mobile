@@ -1,7 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useEffect, useState } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
-import { ScrollView, View, Text, Image } from 'react-native';
+import { ScrollView, View, Text, Image, Alert } from 'react-native';
 import * as yup from 'yup';
 import StepSix from '../../../assets/plot-steps-images/StepSample.png';
 import PlantIcon from '../../../assets/plot-steps-images/StepTwo.png';
@@ -128,8 +128,15 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
     }).catch();
   }
 
-  const analyseImage = () => {
-
+  const analyseImage = async (imageToAnalyze?: ImageOrVideo) => {
+    if (imageToAnalyze) {
+      setImageToVisualize(imageToAnalyze);
+    } else {
+      Alert.alert(
+        'Erro ao analisar imagem',
+        'É necessário escolher uma imagem antes de solicitar seu preview de analise'
+      );
+    }
   }
   
   const toggleImageVisualization = () => {
@@ -147,7 +154,7 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
         />
         <StepIndicator step={1} indicator={4} />
         {imageToVisualize !== null ?
-          <ImageDisplayer image={imageToVisualize} title='Image analisada' closeFunction={toggleImageVisualization}/>
+          <ImageDisplayer image={imageToVisualize} title='Imagem' closeFunction={toggleImageVisualization}/>
           :
           null
         }
@@ -164,7 +171,9 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
                 flexDirection: 'column', width: 127, height: 127
               }}>
                 {plantAImage !== undefined ?
-                  <Image source={{ uri: plantAImage['path'] }} style={{ width: 128, height: 128 }} />
+                  <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(plantAImage)}>
+                    <Image source={{ uri: plantAImage['path'] }} style={{ width: 128, height: 128 }} />
+                  </TouchableOpacity>
                   :
                   <RegisterPlantImage source={PlantIcon} resizeMode="contain" />
                 }
@@ -201,7 +210,7 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
                 <Picker.Item label="Maturação (Dessecado)" value="maturacaoDessecado" />
                 <Picker.Item label="Em colheita" value="emColheita" />
               </Picker>
-              <TouchableOpacity activeOpacity={0.5} onPress={analyseImage}>
+              <TouchableOpacity activeOpacity={0.5} onPress={() => analyseImage(plantAImage)}>
                 <View style={{
                   flexDirection: 'row', flex: 1, justifyContent: 'center', alignItems: 'center',
                   marginTop: 15, paddingLeft: 0
@@ -224,7 +233,9 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
                 flexDirection: 'column', width: 127, height: 127
               }}>
                 {plantBImage !== undefined ?
-                  <Image source={{ uri: plantBImage['path'] }} style={{ width: 128, height: 128 }} />
+                  <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(plantBImage)}>
+                    <Image source={{ uri: plantBImage['path'] }} style={{ width: 128, height: 128 }} />
+                  </TouchableOpacity>
                   :
                   <RegisterPlantImage source={PlantIcon} resizeMode="contain" />
                 }
@@ -261,7 +272,7 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
                 <Picker.Item label="Maturação (Dessecado)" value="maturacaoDessecado" />
                 <Picker.Item label="Em colheita" value="emColheita" />
               </Picker>
-              <TouchableOpacity activeOpacity={0.5} onPress={analyseImage}>
+              <TouchableOpacity activeOpacity={0.5} onPress={() => analyseImage(plantBImage)}>
                 <View style={{
                   flexDirection: 'row', flex: 1, justifyContent: 'center', alignItems: 'center',
                   marginTop: 15, paddingLeft: 0
