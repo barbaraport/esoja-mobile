@@ -43,6 +43,23 @@ export const CreatePlotStepSeven: React.FC<
     const { saveStep, getPersistedData } = useSample();
 
   const handleSubmitStepSeven = () => {
+    if (!plantAImage || !plantBImage) {
+      Alert.alert("Amostras sem imagens", "Todas as amostras necessitam de imagens");
+      return;
+    } else if (!plantASize || !plantBSize) {
+      Alert.alert("Amostras sem tamanhos definidos", "Todas as amostras necessitam que seus tamanhos, " +
+      "em centímetros, sejam fornecidos");
+      return;
+    } else if (!/^\d+$/.test(plantASize) || !/^\d+$/.test(plantBSize)) {
+      Alert.alert("Amostras com tamanhos inválidos", "O tamanho das amostras devem ser um número inteiro " +
+      "e positivo");
+      return;
+    } else if (!plantAStage || !plantAStage) {
+      Alert.alert("Amostras sem estágios definidos", "Todas as amostras necessitam que seus estágios " +
+      "fenológicos estejam definidos");
+      return;
+    }
+  
     const sample: Sample =  {
       plantB: {
         plantAImage: plantAImage,
