@@ -1,6 +1,6 @@
+import { Sample } from '../../hooks/useSample';
 import { Coordinates } from './Coordinates';
 import { Property } from './Property';
-import { Sample } from './Sample';
 
 export interface Plot {
   id: string;

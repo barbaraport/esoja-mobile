@@ -1,5 +1,6 @@
 import { FontAwesome5 } from '@expo/vector-icons';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useNavigation, useRoute } from '@react-navigation/core';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Keyboard } from 'react-native';
@@ -12,6 +13,9 @@ import { translate } from '../../data/I18n';
 import { SignInScreenRouteProps } from '../../data/routes/auth';
 import { useAuth } from '../../hooks/useAuth';
 import { RFFontSize, RFHeight, RFWidth } from '../../utils/getResponsiveSizes';
+import { CreatePlotStepFive } from '../CreatePlot/CreatePlotStepFive';
+import { CreatePlotStepNine } from '../CreatePlot/CreatePlotStepNine';
+import { CreatePlotStepSix } from '../CreatePlot/CreatePlotStepSix';
 import {
   Container,
   FormContainer,
@@ -48,7 +52,8 @@ export const SignIn: React.FC<SignInScreenRouteProps> = ({ navigation }) => {
   });
   const { isLoading, signInWithPassword, signInWithGoogle, sigInWithFacebook } =
     useAuth();
-
+  navigation = useNavigation();
+  const route = useRoute();
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <KeyboardAvoidingView>
@@ -59,8 +64,7 @@ export const SignIn: React.FC<SignInScreenRouteProps> = ({ navigation }) => {
               paddingBottom: getBottomSpace() + RFHeight(24),
               justifyContent: 'center',
               alignItems: 'center'
-            }}
-          >
+            }}>
             <LogoImage />
 
             <WelcomeText>{translate('signIn.welcome')}</WelcomeText>

@@ -5,31 +5,41 @@ import React, {
   useCallback,
   useContext,
   useMemo,
-  useState
+  useState,
 } from 'react';
 import { FieldValues } from 'react-hook-form';
+import { ImageSourcePropType } from 'react-native';
+import { ImageOrVideo } from 'react-native-image-crop-picker';
 import { api } from '../data/services/api';
 import { useUpload } from './useUpload';
 
-interface Sample {
+export interface Sample {
   metersBetweenPlants?: string;
   plantsPerMeter?: string;
   plantA?: {
-    grainsPlant1?: number;
-    grainsPlant2?: number;
-    description?: string;
+    plantASize?: string;
+    plantAStage?: string;
+    plantAImage?: ImageOrVideo;
+    plantBSize?: string;
+    plantBStage?: string;
+    plantBImage?: ImageOrVideo;
   };
   plantB?: {
-    grainsPlant1?: number;
-    grainsPlant2?: number;
-    description?: string;
+    plantASize?: string;
+    plantAStage?: string;
+    plantAImage?: ImageOrVideo;
+    plantBSize?: string;
+    plantBStage?: string;
+    plantBImage?: ImageOrVideo;
   };
   plantC?: {
-    grainsPlant1?: number;
-    grainsPlant2?: number;
-    description?: string;
+    plantASize?: string;
+    plantAStage?: string;
+    plantAImage?: ImageOrVideo;
+    plantBSize?: string;
+    plantBStage?: string;
+    plantBImage?: ImageOrVideo;
   };
-  photo?: string;
   cultiveId?: string;
 }
 
@@ -80,11 +90,9 @@ const SampleProvider: React.FC<SampleContextProps> = ({ children }) => {
   const createSample = useCallback(
     async (photoUri: string) => {
       const fullData: Sample = await getPersistedData();
-      fullData.photo = await pictureUpload(photoUri, 'sample');
       const updatePlot = {
         plantsPerMeter: fullData?.plantsPerMeter,
         metersBetweenPlants: (Number(fullData?.metersBetweenPlants) || 0) / 100,
-        photo: fullData?.photo
       };
       await api.put(
         `/cultive/sample-information/${fullData?.cultiveId}`,

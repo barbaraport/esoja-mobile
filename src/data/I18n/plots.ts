@@ -3,7 +3,7 @@ export default {
     plots: {
       plots: 'Talhões',
       SeeAllYourPlots: 'Visualize todas seus talhões registrados',
-
+      size: "Altura",
       PlotDetailDefaultTitle: 'Meu talhão',
       PlotDetailArea: 'Area',
       PlotDetailAreaUnit: 'hectares',
@@ -31,6 +31,7 @@ export default {
     plots: {
       plots: 'Plots',
       SeeAllYourPlots: 'See all your registered plots',
+      size: "Height",
 
       PlotDetailDefaultTitle: 'My field',
       PlotDetailArea: 'Area',

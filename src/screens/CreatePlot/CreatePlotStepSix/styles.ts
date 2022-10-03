@@ -14,6 +14,11 @@ export const StepSixHelperImage = styled.Image`
   height: 140px;
 `;
 
+export const RegisterPlantImage = styled.Image`
+  width: 60px;
+  height: 100px;
+`;
+
 export const HelperImageContainer = styled.View`
   width: 200px;
   height: 200px;
