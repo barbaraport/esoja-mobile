@@ -24,6 +24,7 @@ import { RegisterPlantImage } from '../CreatePlotStepSix/styles';
 import { RFFontSize } from '../../../utils/getResponsiveSizes';
 import { FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 import { Picker } from '@react-native-picker/picker';
+import { ImageDisplayer } from '../../../components/ImageDisplayer';
 
 const userLogin = yup.object().shape({
   grainsPlant1: yup
@@ -82,6 +83,7 @@ export const CreatePlotStepEight: React.FC<
   const [plantBImage, setPlantBImage] = useState<ImageOrVideo>();
   const [plantBSize, setPlantBSize] = useState<string>('');
   const [plantBStage, setPlantBStage] = useState<string>('');
+  const [imageToVisualize, setImageToVisualize] = useState<ImageOrVideo | null>(null);
 
 const pickPictureA = () => {
     ImageCropPicker.openPicker({
@@ -126,6 +128,11 @@ const pickPictureA = () => {
   const analyseImage = () => {
 
   }
+  const toggleImageVisualization = () => {
+    if (imageToVisualize !== null) {
+      setImageToVisualize(null);
+    }
+  }
 
   return (
     <ScrollView>
@@ -135,6 +142,11 @@ const pickPictureA = () => {
           subtitle={"Tire uma foto ou escolha de sua galeria imagens de duas plantas e insira suas respectivas alturas em centímetros"}
         />
         <StepIndicator step={1} indicator={6} />
+        {imageToVisualize !== null ?
+          <ImageDisplayer image={imageToVisualize} title='Image analisada' closeFunction={toggleImageVisualization}/>
+          :
+          null
+        }
         <FormContainer>
           <View style={{ flexDirection: 'row', flex: 1, marginBottom: 30 }} >
             <View style={{ flexDirection: 'column', flex: 1 }}>

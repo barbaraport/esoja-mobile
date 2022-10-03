@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, Text, Image, ImageProps, ImageSourcePropType, TouchableOpacity } from 'react-native';
+import { ImageOrVideo } from 'react-native-image-crop-picker';
 
 type ImageDisplayerProps = {
     title: string
-    image: ImageSourcePropType
+    image: ImageOrVideo
     closeFunction(): void
 };
 
@@ -20,7 +21,7 @@ export const ImageDisplayer: React.FC<ImageDisplayerProps> = ({image, title, clo
                 </TouchableOpacity>
             </View>
             <View style={{backgroundColor: '#DDDDDD', width: '100%', height: '100%'}}>
-                <Image source={image}/>
+                <Image source={{uri: image['path']}}/>
             </View>
         </View>
     );

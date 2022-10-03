@@ -14,6 +14,7 @@ import {
 import { api } from '../../../data/services/api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ImageDisplayer } from '../../../components/ImageDisplayer';
+import { ImageOrVideo } from 'react-native-image-crop-picker';
 
 async function registerSample(data: any) {
   console.log('registering sample');
@@ -52,7 +53,7 @@ async function registerSample(data: any) {
       return true;
 }
 
-async function analyzeImages(images: Array<ImageSourcePropType>) {
+async function analyzeImages(images: Array<ImageOrVideo>) {
   return images;
 }
 
@@ -61,9 +62,9 @@ export const CreatePlotStepNine: React.FC<
 > = ({ navigation }) => {
 
     const [loading, setLoading] = useState(false);
-    const [imageToVisualize, setImageToVisualize] = useState<ImageSourcePropType | null>(null);
+    const [imageToVisualize, setImageToVisualize] = useState<ImageOrVideo | null>(null);
     const [fullData, setFullData] = useState<Sample | null>(null);
-    const [analyzedImages, setAnalyzedImages] = useState<Array<ImageSourcePropType>>([]);
+    const [analyzedImages, setAnalyzedImages] = useState<Array<ImageOrVideo>>([]);
   
     const { getPersistedData } = useSample();
 

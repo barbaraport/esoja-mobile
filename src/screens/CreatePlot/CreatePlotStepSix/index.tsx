@@ -25,6 +25,7 @@ import { RFFontSize } from '../../../utils/getResponsiveSizes';
 import { Picker } from '@react-native-picker/picker';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import ImageCropPicker, { ImageOrVideo } from 'react-native-image-crop-picker';
+import { ImageDisplayer } from '../../../components/ImageDisplayer';
 
 const userLogin = yup.object().shape({
   plantASize: yup
@@ -85,6 +86,7 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
   const [plantBImage, setPlantBImage] = useState<ImageOrVideo>();
   const [plantBSize, setPlantBSize] = useState<string>('');
   const [plantBStage, setPlantBStage] = useState<string>('');
+  const [imageToVisualize, setImageToVisualize] = useState<ImageOrVideo | null>(null);
 
   const pickPictureA = () => {
     ImageCropPicker.openPicker({
@@ -129,6 +131,12 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
   const analyseImage = () => {
 
   }
+  
+  const toggleImageVisualization = () => {
+    if (imageToVisualize !== null) {
+      setImageToVisualize(null);
+    }
+  }
 
   return (
     <ScrollView>
@@ -138,7 +146,11 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
           subtitle={"Tire uma foto ou escolha de sua galeria imagens de duas plantas e insira suas respectivas alturas em centímetros"}
         />
         <StepIndicator step={1} indicator={4} />
-
+        {imageToVisualize !== null ?
+          <ImageDisplayer image={imageToVisualize} title='Image analisada' closeFunction={toggleImageVisualization}/>
+          :
+          null
+        }
         <FormContainer>
           <View style={{ flexDirection: 'row', flex: 1, marginBottom: 30 }} >
             <View style={{ flexDirection: 'column', flex: 1 }}>
