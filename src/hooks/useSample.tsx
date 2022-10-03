@@ -9,6 +9,7 @@ import React, {
 } from 'react';
 import { FieldValues } from 'react-hook-form';
 import { ImageSourcePropType } from 'react-native';
+import { ImageOrVideo } from 'react-native-image-crop-picker';
 import { api } from '../data/services/api';
 import { useUpload } from './useUpload';
 
@@ -18,26 +19,26 @@ export interface Sample {
   plantA?: {
     plantASize?: string;
     plantAStage?: string;
-    plantAImage?: ImageSourcePropType;
+    plantAImage?: ImageOrVideo;
     plantBSize?: string;
     plantBStage?: string;
-    plantBImage?: ImageSourcePropType;
+    plantBImage?: ImageOrVideo;
   };
   plantB?: {
     plantASize?: string;
     plantAStage?: string;
-    plantAImage?: ImageSourcePropType;
+    plantAImage?: ImageOrVideo;
     plantBSize?: string;
     plantBStage?: string;
-    plantBImage?: ImageSourcePropType;
+    plantBImage?: ImageOrVideo;
   };
   plantC?: {
     plantASize?: string;
     plantAStage?: string;
-    plantAImage?: ImageSourcePropType;
+    plantAImage?: ImageOrVideo;
     plantBSize?: string;
     plantBStage?: string;
-    plantBImage?: ImageSourcePropType;
+    plantBImage?: ImageOrVideo;
   };
   cultiveId?: string;
 }

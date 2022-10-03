@@ -40,7 +40,7 @@ export const TextInput: React.FC<TextInputProps> = ({
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
 
-  let field: UseControllerReturn<FieldValues, string> | undefined= undefined;
+  let field: UseControllerReturn<FieldValues, string> | undefined = undefined;
 
   if (control) {
     field = useController({

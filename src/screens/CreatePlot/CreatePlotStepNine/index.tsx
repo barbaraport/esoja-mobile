@@ -136,7 +136,7 @@ export const CreatePlotStepNine: React.FC<
               <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-between', marginBottom: 30}}>
                 <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantA?.plantAImage!)}>
-                    <Image source={fullData?.plantA?.plantAImage!} style={{ width: 128, height: 128 }} />
+                    <Image source={{ uri: fullData?.plantA?.plantAImage!['path'] }} style={{ width: 128, height: 128 }} />
                   </TouchableOpacity>
                   <Text style={{fontWeight: 'bold', marginTop: 10}}>Original</Text>
                 </View>
@@ -151,7 +151,7 @@ export const CreatePlotStepNine: React.FC<
               <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-between', marginBottom: 30}}>
                 <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantA?.plantBImage!)}>
-                    <Image source={fullData?.plantA?.plantBImage!} style={{ width: 128, height: 128 }} />
+                    <Image source={{ uri: fullData?.plantA?.plantBImage!['path'] }} style={{ width: 128, height: 128 }} />
                   </TouchableOpacity>
                   <Text style={{fontWeight: 'bold', marginTop: 10}}>Original</Text>
                 </View>
@@ -171,7 +171,7 @@ export const CreatePlotStepNine: React.FC<
               <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-between', marginBottom: 30}}>
                 <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantA?.plantAImage!)}>
-                    <Image source={fullData?.plantA?.plantAImage!} style={{ width: 128, height: 128 }} />
+                    <Image source={fullData?.plantB?.plantAImage!} style={{ width: 128, height: 128 }} />
                   </TouchableOpacity>
                   <Text style={{fontWeight: 'bold', marginTop: 10}}>Original</Text>
                 </View>
@@ -186,7 +186,7 @@ export const CreatePlotStepNine: React.FC<
               <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-between', marginBottom: 30}}>
                 <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantA?.plantBImage!)}>
-                    <Image source={fullData?.plantA?.plantBImage!} style={{ width: 128, height: 128 }} />
+                    <Image source={{ uri: fullData?.plantB?.plantBImage!['path'] }} style={{ width: 128, height: 128 }} />
                   </TouchableOpacity>
                   <Text style={{fontWeight: 'bold', marginTop: 10}}>Original</Text>
                 </View>
@@ -206,7 +206,7 @@ export const CreatePlotStepNine: React.FC<
               <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-between', marginBottom: 30}}>
                 <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantA?.plantAImage!)}>
-                    <Image source={fullData?.plantA?.plantAImage!} style={{ width: 128, height: 128 }} />
+                    <Image source={{ uri: fullData?.plantC?.plantAImage!['path'] }} style={{ width: 128, height: 128 }} />
                   </TouchableOpacity>
                   <Text style={{fontWeight: 'bold', marginTop: 10}}>Original</Text>
                 </View>
@@ -221,7 +221,7 @@ export const CreatePlotStepNine: React.FC<
               <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-between', marginBottom: 30}}>
                 <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantA?.plantBImage!)}>
-                    <Image source={fullData?.plantA?.plantBImage!} style={{ width: 128, height: 128 }} />
+                    <Image source={{ uri: fullData?.plantC?.plantBImage!['path'] }} style={{ width: 128, height: 128 }} />
                   </TouchableOpacity>
                   <Text style={{fontWeight: 'bold', marginTop: 10}}>Original</Text>
                 </View>
