@@ -26,6 +26,7 @@ import { FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 import { Picker } from '@react-native-picker/picker';
 import { ImageDisplayer } from '../../../components/ImageDisplayer';
 import RNFS from 'react-native-fs';
+import { api } from '../../../data/services/api';
 
 const userLogin = yup.object().shape({
   grainsPlant1: yup
@@ -147,8 +148,16 @@ const pickPictureA = () => {
   const analyseImage = async (imageToAnalyze?: ImageOrVideo) => {
     if (imageToAnalyze) {
       const base64 = await RNFS.readFile(imageToAnalyze['path'], 'base64');
+      
+      const response = await api.post("/recognizeImages", JSON.stringify([base64]));
 
-      setImageToVisualize({path: 'data:image/png;base64,' + base64} as ImageOrVideo);
+      if (response['status'] === 200) {
+        const responseBody = JSON.parse(response['data']) as Array<string>;
+
+        setImageToVisualize({path: 'data:image/png;base64,' + responseBody[0]} as ImageOrVideo);
+      }
+
+      throw new Error('Unable to analyze the image');
     } else {
       Alert.alert(
         'Erro ao analisar imagem',

@@ -27,6 +27,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import ImageCropPicker, { ImageOrVideo } from 'react-native-image-crop-picker';
 import { ImageDisplayer } from '../../../components/ImageDisplayer';
 import RNFS from 'react-native-fs';
+import { api } from '../../../data/services/api';
 
 const userLogin = yup.object().shape({
   plantASize: yup
@@ -149,8 +150,16 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
   const analyseImage = async (imageToAnalyze?: ImageOrVideo) => {
     if (imageToAnalyze) {
       const base64 = await RNFS.readFile(imageToAnalyze['path'], 'base64');
+      
+      const response = await api.post("/recognizeImages", JSON.stringify([base64]));
 
-      setImageToVisualize({path: 'data:image/png;base64,' + base64} as ImageOrVideo);
+      if (response['status'] === 200) {
+        const responseBody = JSON.parse(response['data']) as Array<string>;
+
+        setImageToVisualize({path: 'data:image/png;base64,' + responseBody[0]} as ImageOrVideo);
+      }
+
+      throw new Error('Unable to analyze the image');
     } else {
       Alert.alert(
         'Erro ao analisar imagem',
