@@ -25,6 +25,7 @@ import { RFFontSize } from '../../../utils/getResponsiveSizes';
 import { RegisterPlantImage } from '../CreatePlotStepSix/styles';
 import ImageCropPicker, { ImageOrVideo } from 'react-native-image-crop-picker';
 import { ImageDisplayer } from '../../../components/ImageDisplayer';
+import RNFS from 'react-native-fs';
 
 const userLogin = yup.object().shape({
   grainsPlant1: yup
@@ -144,7 +145,9 @@ export const CreatePlotStepSeven: React.FC<
 
   const analyseImage = async (imageToAnalyze?: ImageOrVideo) => {
     if (imageToAnalyze) {
-      setImageToVisualize(imageToAnalyze);
+      const base64 = await RNFS.readFile(imageToAnalyze['path'], 'base64');
+
+      setImageToVisualize({path: 'data:image/png;base64,' + base64} as ImageOrVideo);
     } else {
       Alert.alert(
         'Erro ao analisar imagem',

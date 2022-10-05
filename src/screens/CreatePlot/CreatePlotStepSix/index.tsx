@@ -26,6 +26,7 @@ import { Picker } from '@react-native-picker/picker';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import ImageCropPicker, { ImageOrVideo } from 'react-native-image-crop-picker';
 import { ImageDisplayer } from '../../../components/ImageDisplayer';
+import RNFS from 'react-native-fs';
 
 const userLogin = yup.object().shape({
   plantASize: yup
@@ -147,7 +148,9 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
 
   const analyseImage = async (imageToAnalyze?: ImageOrVideo) => {
     if (imageToAnalyze) {
-      setImageToVisualize(imageToAnalyze);
+      const base64 = await RNFS.readFile(imageToAnalyze['path'], 'base64');
+
+      setImageToVisualize({path: 'data:image/png;base64,' + base64} as ImageOrVideo);
     } else {
       Alert.alert(
         'Erro ao analisar imagem',

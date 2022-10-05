@@ -192,6 +192,8 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
     implementation "com.facebook.react:react-native:0.69.4"
     implementation platform('com.google.firebase:firebase-bom:30.3.2')
+
+    implementation project(':react-native-fs')
     
     def isGifEnabled = (findProperty('expo.gif.enabled') ?: "") == "true";
     def isWebpEnabled = (findProperty('expo.webp.enabled') ?: "") == "true";
