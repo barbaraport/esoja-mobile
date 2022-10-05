@@ -15,6 +15,7 @@ import { api } from '../../../data/services/api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ImageDisplayer } from '../../../components/ImageDisplayer';
 import { ImageOrVideo } from 'react-native-image-crop-picker';
+import RNFS from 'react-native-fs';
 
 async function registerSample(data: any) {
   console.log('registering sample');
@@ -53,8 +54,24 @@ async function registerSample(data: any) {
       return true;
 }
 
-async function analyzeImages(images: Array<ImageOrVideo>) {
-  return images;
+async function analyzeImages(images: Array<String>) {
+  const response = await api.post("/recognizeImages", JSON.stringify(images));
+  
+  if (response['status'] === 200) {
+    const responseBody = JSON.parse(response['data']) as Array<string>;
+
+    const analyzedImages: Array<ImageOrVideo> = [];
+
+    for (let i = 0; i < responseBody.length; i++) {
+      const analyzedImage = responseBody[i];
+      
+      analyzedImages.push({path: 'data:image/png;base64,' + analyzedImage} as ImageOrVideo);
+    }
+
+    return analyzedImages;
+  }
+
+  throw new Error('Unable to analyze the images');
 }
 
 export const CreatePlotStepNine: React.FC<
@@ -69,25 +86,37 @@ export const CreatePlotStepNine: React.FC<
     const { getPersistedData } = useSample();
 
     useEffect(() => {
-      getPersistedData().
-        then(fullData => {
+      async function analyze(data: Sample) {
+        const plantAImageA = await RNFS.readFile(data?.plantA?.plantAImage!['path']!, 'base64');
+        const plantAImageB = await RNFS.readFile(data?.plantA?.plantBImage!['path']!, 'base64');
+        const plantBImageA = await RNFS.readFile(data?.plantB?.plantAImage!['path']!, 'base64');
+        const plantBImageB = await RNFS.readFile(data?.plantB?.plantBImage!['path']!, 'base64');
+        const plantCImageA = await RNFS.readFile(data?.plantC?.plantAImage!['path']!, 'base64');
+        const plantCImageB = await RNFS.readFile(data?.plantC?.plantBImage!['path']!, 'base64');
+
+        const imagesToAnalyze = [
+          plantAImageA,
+          plantAImageB,
+          plantBImageA,
+          plantBImageB,
+          plantCImageA,
+          plantCImageB
+        ];
+
+        analyzeImages(imagesToAnalyze).then(
+          result => {
+              setAnalyzedImages(result);
+          }
+        );
+      }
+
+      getPersistedData().then(
+        fullData => {
           setFullData(fullData as Sample);
 
-          const imagesToAnalyze = [
-            fullData?.plantA?.plantAImage!,
-            fullData?.plantA?.plantBImage!,
-            fullData?.plantB?.plantAImage!,
-            fullData?.plantB?.plantBImage!,
-            fullData?.plantC?.plantAImage!,
-            fullData?.plantC?.plantBImage!,
-          ];
-
-          analyzeImages(imagesToAnalyze).then(
-            result => {
-              setAnalyzedImages(result);
-            }
-          );
-        });
+          analyze(fullData!);
+        }
+      )
     }, []);
 
     const handleSubmitStepNine = async () => {
