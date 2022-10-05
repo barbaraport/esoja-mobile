@@ -11,7 +11,7 @@ import {
   FormContainer,
   NextStepButton,
 } from './styles';
-import { api } from '../../../data/services/api';
+import { api, imageRecognition } from '../../../data/services/api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ImageDisplayer } from '../../../components/ImageDisplayer';
 import { ImageOrVideo } from 'react-native-image-crop-picker';
@@ -39,15 +39,11 @@ async function registerSample(data: any) {
           ]
         };
 
-        console.log(updatePlot);
-        console.log(newSample);
-
         //await api.post('/sample', newSample);
-
         //await AsyncStorage.removeItem('@esoja:sample');
+        
       } catch (error) {
         console.error(error);
-
         return false;
       }
 
@@ -55,7 +51,7 @@ async function registerSample(data: any) {
 }
 
 async function analyzeImages(images: Array<String>) {
-  const response = await api.post("/recognizeImages", JSON.stringify(images));
+  const response = await imageRecognition.post("/recognizeImages", JSON.stringify(images));
   
   if (response['status'] === 200) {
     const responseBody = JSON.parse(response['data']) as Array<string>;
@@ -127,7 +123,6 @@ export const CreatePlotStepNine: React.FC<
 
       if (success === true) {
         // navigation.navigate('Plots');
-        console.log("deu certo");
       } else {
         setLoading(false);
 
