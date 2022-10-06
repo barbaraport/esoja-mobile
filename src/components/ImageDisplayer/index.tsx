@@ -20,8 +20,8 @@ export const ImageDisplayer: React.FC<ImageDisplayerProps> = ({image, title, clo
                     <Text style={{fontSize: 20}}>X</Text>
                 </TouchableOpacity>
             </View>
-            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-                <Image source={{uri: image['path']}} style={{width: 256, height: 256}}/>
+            <View style={{flex: 1, justifyContent: 'flex-start', alignItems: 'center'}}>
+                <Image source={{uri: image['path']}} style={{width: 1024, height: 1024}}/>
             </View>
         </View>
     );

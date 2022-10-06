@@ -45,7 +45,6 @@ export const CreatePlotStepEight: React.FC<
       const { saveStep, getPersistedData } = useSample();
 
   const handleSubmitStepEight = () => {
-    debugger;
     if (!plantAImage || !plantBImage) {
       Alert.alert("Amostras sem imagens", "Todas as amostras necessitam de imagens");
       return;
@@ -107,8 +106,6 @@ export const CreatePlotStepEight: React.FC<
 
 const pickPictureA = () => {
     ImageCropPicker.openPicker({
-      width: 256,
-      height: 256,
       cropping: true
     }).then(image => {
       setPlantAImage(image);
@@ -117,8 +114,6 @@ const pickPictureA = () => {
 
   const photographPictureA = () => {
     ImageCropPicker.openCamera({
-      width: 256,
-      height: 256,
       cropping: true
     }).then(image => {
       setPlantAImage(image);
@@ -127,8 +122,6 @@ const pickPictureA = () => {
 
   const pickPictureB = () => {
     ImageCropPicker.openPicker({
-      width: 256,
-      height: 256,
       cropping: true
     }).then(image => {
       setPlantBImage(image);
@@ -137,8 +130,6 @@ const pickPictureA = () => {
 
   const photographPictureB = () => {
     ImageCropPicker.openCamera({
-      width: 256,
-      height: 256,
       cropping: true
     }).then(image => {
       setPlantBImage(image);

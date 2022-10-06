@@ -109,8 +109,6 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
 
   const pickPictureA = () => {
     ImageCropPicker.openPicker({
-      width: 256,
-      height: 256,
       cropping: true
     }).then(image => {
       setPlantAImage(image);
@@ -119,8 +117,6 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
 
   const photographPictureA = () => {
     ImageCropPicker.openCamera({
-      width: 256,
-      height: 256,
       cropping: true
     }).then(image => {
       setPlantAImage(image);
@@ -129,8 +125,6 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
 
   const pickPictureB = () => {
     ImageCropPicker.openPicker({
-      width: 256,
-      height: 256,
       cropping: true
     }).then(image => {
       setPlantBImage(image);
@@ -139,8 +133,6 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
 
   const photographPictureB = () => {
     ImageCropPicker.openCamera({
-      width: 256,
-      height: 256,
       cropping: true
     }).then(image => {
       setPlantBImage(image);
