@@ -26,7 +26,7 @@ import { RegisterPlantImage } from '../CreatePlotStepSix/styles';
 import ImageCropPicker, { ImageOrVideo } from 'react-native-image-crop-picker';
 import { ImageDisplayer } from '../../../components/ImageDisplayer';
 import RNFS from 'react-native-fs';
-import { api } from '../../../data/services/api';
+import { api, imageRecognition } from '../../../data/services/api';
 
 const userLogin = yup.object().shape({
   grainsPlant1: yup
@@ -135,12 +135,11 @@ export const CreatePlotStepSeven: React.FC<
       setPlantBImage(image);
     }).catch();
   }
-
-  const analyseImage = async (imageToAnalyze?: ImageOrVideo) => {
+const analyzeImage = async (imageToAnalyze?: ImageOrVideo) => {
     if (imageToAnalyze) {
       const base64 = await RNFS.readFile(imageToAnalyze['path'], 'base64');
       
-      const response = await api.post("/recognizeImages", JSON.stringify([base64]));
+      const response = await imageRecognition.post("/recognizeImages", JSON.stringify([base64]));
 
       if (response['status'] === 200) {
         const responseBody = JSON.parse(response['data']) as Array<string>;
@@ -228,7 +227,7 @@ export const CreatePlotStepSeven: React.FC<
                 <Picker.Item label="Maturação (Dessecado)" value="maturacaoDessecado" />
                 <Picker.Item label="Em colheita" value="emColheita" />
               </Picker>
-              <TouchableOpacity activeOpacity={0.5} onPress={() => analyseImage(plantAImage)}>
+              <TouchableOpacity activeOpacity={0.5} onPress={() => analyzeImage(plantAImage)}>
                 <View style={{
                   flexDirection: 'row', flex: 1, justifyContent: 'center', alignItems: 'center',
                   marginTop: 15, paddingLeft: 0
@@ -290,7 +289,7 @@ export const CreatePlotStepSeven: React.FC<
                 <Picker.Item label="Maturação (Dessecado)" value="maturacaoDessecado" />
                 <Picker.Item label="Em colheita" value="emColheita" />
               </Picker>
-              <TouchableOpacity activeOpacity={0.5} onPress={() => analyseImage(plantBImage)}>
+              <TouchableOpacity activeOpacity={0.5} onPress={() => analyzeImage(plantBImage)}>
                 <View style={{
                   flexDirection: 'row', flex: 1, justifyContent: 'center', alignItems: 'center',
                   marginTop: 15, paddingLeft: 0
