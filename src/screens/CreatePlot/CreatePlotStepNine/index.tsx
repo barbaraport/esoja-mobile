@@ -164,7 +164,7 @@ export const CreatePlotStepNine: React.FC<
                 </View>
                 <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(analyzedImages[0])}>
-                    <Image source={{uri: analyzedImages[0].path}} style={{ width: 128, height: 128 }} />
+                    <Image source={{uri: analyzedImages[0]?.path}} style={{ width: 128, height: 128 }} />
                   </TouchableOpacity>
                   <Text style={{fontWeight: 'bold', marginTop: 10}}>Analisada</Text>
                 </View>
@@ -179,7 +179,7 @@ export const CreatePlotStepNine: React.FC<
                 </View>
                 <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(analyzedImages[1])}>
-                    <Image source={{uri: analyzedImages[1].path}} style={{ width: 128, height: 128 }} />
+                    <Image source={{uri: analyzedImages[1]?.path}} style={{ width: 128, height: 128 }} />
                   </TouchableOpacity>
                   <Text style={{fontWeight: 'bold', marginTop: 10}}>Analisada</Text>
                 </View>
@@ -199,7 +199,7 @@ export const CreatePlotStepNine: React.FC<
                 </View>
                 <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(analyzedImages[2])}>
-                    <Image source={{uri: analyzedImages[2].path}} style={{ width: 128, height: 128 }} />
+                    <Image source={{uri: analyzedImages[2]?.path}} style={{ width: 128, height: 128 }} />
                   </TouchableOpacity>
                   <Text style={{fontWeight: 'bold', marginTop: 10}}>Analisada</Text>
                 </View>
@@ -214,7 +214,7 @@ export const CreatePlotStepNine: React.FC<
                 </View>
                 <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(analyzedImages[3])}>
-                    <Image source={{uri: analyzedImages[3].path}}style={{ width: 128, height: 128 }} />
+                    <Image source={{uri: analyzedImages[3]?.path}}style={{ width: 128, height: 128 }} />
                   </TouchableOpacity>
                   <Text style={{fontWeight: 'bold', marginTop: 10}}>Analisada</Text>
                 </View>
@@ -234,7 +234,7 @@ export const CreatePlotStepNine: React.FC<
                 </View>
                 <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(analyzedImages[4])}>
-                    <Image source={{uri: analyzedImages[4].path}} style={{ width: 128, height: 128 }} />
+                    <Image source={{uri: analyzedImages[4]?.path}} style={{ width: 128, height: 128 }} />
                   </TouchableOpacity>
                   <Text style={{fontWeight: 'bold', marginTop: 10}}>Analisada</Text>
                 </View>
@@ -249,7 +249,7 @@ export const CreatePlotStepNine: React.FC<
                 </View>
                 <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(analyzedImages[5])}>
-                    <Image source={{uri: analyzedImages[5].path}} style={{ width: 128, height: 128 }} />
+                    <Image source={{uri: analyzedImages[5]?.path}} style={{ width: 128, height: 128 }} />
                   </TouchableOpacity>
                   <Text style={{fontWeight: 'bold', marginTop: 10}}>Analisada</Text>
                 </View>
