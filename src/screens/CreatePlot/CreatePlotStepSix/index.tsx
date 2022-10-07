@@ -142,17 +142,17 @@ export const CreatePlotStepSix: React.FC<CreatePlotStepSixScreenRouteProps> = ({
   const analyzeImage = async (imageToAnalyze?: ImageOrVideo) => {
     if (imageToAnalyze) {
       const base64 = await RNFS.readFile(imageToAnalyze['path'], 'base64');
-      
-      const response = await imageRecognition.post("/recognizeImages", JSON.stringify([base64]));
-
+      const body = JSON.stringify(base64);
+      const response = await imageRecognition.post("/recognizeImages", [body]);
       if (response['status'] === 200) {
         const responseBody = JSON.parse(response['data']) as Array<any>;
-        console.log(responseBody);
 
         setImageToVisualize({path: 'data:image/png;base64,' + responseBody[0].image} as ImageOrVideo);
       }
+      else {
+        throw new Error('Unable to analyze the image');
+      }
 
-      throw new Error('Unable to analyze the image');
     } else {
       Alert.alert(
         'Erro ao analisar imagem',

@@ -50,7 +50,7 @@ async function registerSample(data: any) {
 }
 
 async function analyzeImages(images: Array<String>) {
-  const response = await imageRecognition.post("/recognizeImages", JSON.stringify(images));
+  const response = await imageRecognition.post("/recognizeImages", images);
   
   if (response['status'] === 200) {
     const responseBody = JSON.parse(response['data']);
