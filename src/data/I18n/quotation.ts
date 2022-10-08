@@ -5,8 +5,8 @@ export default {
       seedPageDescription: 'Valores baseados no preço da semente convencional do estado do Mato Grosso do Sul',
       bagPageTitle: 'Cotações das sacas',
       pageDescription:
-        'Selecione uma cidade e fique por dentro das últimas atualizaçôes do custo da soja',
-      bagPageDescription: 'Valores baseados no preço da soja disponivel do estado do Mato Grosso do Sul',
+        'Selecione uma cidade e fique por dentro das últimas atualizações do custo da soja',
+      bagPageDescription: 'Valores baseados no preço da soja disponível do estado do Mato Grosso do Sul',
       selectTitle: 'Selecione a cidade',
       date: 'Data',
       bagPrice: 'Preço sc 60kg',

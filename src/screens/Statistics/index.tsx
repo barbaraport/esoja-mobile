@@ -361,7 +361,7 @@ export const Statistics: React.FC<StatisticsScreenRouteProps> = () => {
                 />
                 <StatisticsCard
                   title={translate('statistics.stateAverage')}
-                  value={`${average.toFixed(2)} ton/ha`}
+                  value={`${average.toFixed(2)} ` + translate('plots.PlotCardPlants.productionExpectation')}
                 />
               </StatisticsCardWidgetContainer>
               <StatisticsContentContainer>

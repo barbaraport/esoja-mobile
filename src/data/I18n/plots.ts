@@ -5,7 +5,7 @@ export default {
       SeeAllYourPlots: 'Visualize todas seus talhões registrados',
       size: "Altura",
       PlotDetailDefaultTitle: 'Meu talhão',
-      PlotDetailArea: 'Area',
+      PlotDetailArea: 'Área',
       PlotDetailAreaUnit: 'hectares',
       PlotDetailCropYear: 'Ano safra',
       PlotDetailPlantsPerMeter: 'Plantas por metro',
@@ -23,7 +23,10 @@ export default {
         plant1: 'Planta 1',
         plant2: 'Planta 2',
         description: 'Descrição',
-        grains: 'grãos'
+        grains: 'grãos',
+        areaSize: "hectares",
+        productionExpectation: "ton/ha",
+        area: "Área"
       }
     }
   },
@@ -32,10 +35,9 @@ export default {
       plots: 'Plots',
       SeeAllYourPlots: 'See all your registered plots',
       size: "Height",
-
       PlotDetailDefaultTitle: 'My field',
       PlotDetailArea: 'Area',
-      PlotDetailAreaUnit: 'hectares',
+      PlotDetailAreaUnit: 'acres',
       PlotDetailCropYear: 'Crop year',
       PlotDetailPlantsPerMeter: 'Plants per meter',
       PlotDetailDistanceBetween: 'Distance between cultive lines',
@@ -52,7 +54,10 @@ export default {
         plant1: 'Plant 1',
         plant2: 'Plant 2',
         description: 'Description',
-        grains: 'grains'
+        grains: 'grains',
+        areaSize: "acres",
+        productionExpectation: "ton/ac",
+        area: "Area",
       }
     }
   }

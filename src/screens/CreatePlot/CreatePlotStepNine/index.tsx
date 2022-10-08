@@ -146,15 +146,15 @@ export const CreatePlotStepNine: React.FC<
         />
         <StepIndicator step={2} indicator={8} />
         {imageToVisualize !== null ?
-          <ImageDisplayer image={imageToVisualize} title='Imagem analisada' closeFunction={toggleImageVisualization}/>
+          <ImageDisplayer image={imageToVisualize} title={translate('CreatePlotStepSix.image')} closeFunction={toggleImageVisualization}/>
           :
           null
         }
         <FormContainer>
           <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
-            <Text style={{fontWeight: 'bold', fontSize: 30, marginBottom: 10}}>1ª Amostra</Text>
+            <Text style={{fontWeight: 'bold', fontSize: 30, marginBottom: 10}}>{translate('CreatePlotStepSix.title') + ' 1'}</Text>
             <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
-              <Text style={{fontWeight: 'bold', fontSize: 24}}>Planta A</Text>
+              <Text style={{fontWeight: 'bold', fontSize: 24}}>{translate('CreatePlotStepSix.plant') + ' A'}</Text>
               <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-between', marginBottom: 30}}>
                 <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantA?.plantAImage!)}>
@@ -166,10 +166,10 @@ export const CreatePlotStepNine: React.FC<
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(analyzedImages[0])}>
                     <Image source={{uri: analyzedImages[0]?.path}} style={{ width: 128, height: 128 }} />
                   </TouchableOpacity>
-                  <Text style={{fontWeight: 'bold', marginTop: 10}}>Analisada</Text>
+                  <Text style={{fontWeight: 'bold', marginTop: 10}}>{translate('CreatePlotStepSix.analyzed')}</Text>
                 </View>
               </View>
-              <Text style={{fontWeight: 'bold', fontSize: 24}}>Planta B</Text>
+              <Text style={{fontWeight: 'bold', fontSize: 24}}>{translate('CreatePlotStepSix.plant') + ' B'}</Text>
               <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-between', marginBottom: 30}}>
                 <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantA?.plantBImage!)}>
@@ -181,15 +181,15 @@ export const CreatePlotStepNine: React.FC<
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(analyzedImages[1])}>
                     <Image source={{uri: analyzedImages[1]?.path}} style={{ width: 128, height: 128 }} />
                   </TouchableOpacity>
-                  <Text style={{fontWeight: 'bold', marginTop: 10}}>Analisada</Text>
+                  <Text style={{fontWeight: 'bold', marginTop: 10}}>{translate('CreatePlotStepSix.analyzed')}</Text>
                 </View>
               </View>
             </View>
           </View>
           <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
-            <Text style={{fontWeight: 'bold', fontSize: 30, marginBottom: 10}}>2ª Amostra</Text>
+            <Text style={{fontWeight: 'bold', fontSize: 30, marginBottom: 10}}>{translate('CreatePlotStepSix.title') + ' 2'}</Text>
             <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
-              <Text style={{fontWeight: 'bold', fontSize: 24}}>Planta A</Text>
+              <Text style={{fontWeight: 'bold', fontSize: 24}}>{translate('CreatePlotStepSix.plant') + ' A'}</Text>
               <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-between', marginBottom: 30}}>
                 <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantB?.plantAImage!)}>
@@ -201,10 +201,10 @@ export const CreatePlotStepNine: React.FC<
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(analyzedImages[2])}>
                     <Image source={{uri: analyzedImages[2]?.path}} style={{ width: 128, height: 128 }} />
                   </TouchableOpacity>
-                  <Text style={{fontWeight: 'bold', marginTop: 10}}>Analisada</Text>
+                  <Text style={{fontWeight: 'bold', marginTop: 10}}>{translate('CreatePlotStepSix.analyzed')}</Text>
                 </View>
               </View>
-              <Text style={{fontWeight: 'bold', fontSize: 24}}>Planta B</Text>
+              <Text style={{fontWeight: 'bold', fontSize: 24}}>{translate('CreatePlotStepSix.plant') + ' B'}</Text>
               <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-between', marginBottom: 30}}>
                 <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantB?.plantBImage!)}>
@@ -216,15 +216,15 @@ export const CreatePlotStepNine: React.FC<
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(analyzedImages[3])}>
                     <Image source={{uri: analyzedImages[3]?.path}}style={{ width: 128, height: 128 }} />
                   </TouchableOpacity>
-                  <Text style={{fontWeight: 'bold', marginTop: 10}}>Analisada</Text>
+                  <Text style={{fontWeight: 'bold', marginTop: 10}}>{translate('CreatePlotStepSix.analyzed')}</Text>
                 </View>
               </View>
             </View>
           </View>
           <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
-            <Text style={{fontWeight: 'bold', fontSize: 30, marginBottom: 10}}>3ª Amostra</Text>
+            <Text style={{fontWeight: 'bold', fontSize: 30, marginBottom: 10}}>{translate('CreatePlotStepSix.title') + ' 3'}</Text>
             <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
-              <Text style={{fontWeight: 'bold', fontSize: 24}}>Planta A</Text>
+              <Text style={{fontWeight: 'bold', fontSize: 24}}>{translate('CreatePlotStepSix.plant') + ' A'}</Text>
               <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-between', marginBottom: 30}}>
                 <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantC?.plantAImage!)}>
@@ -236,10 +236,10 @@ export const CreatePlotStepNine: React.FC<
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(analyzedImages[4])}>
                     <Image source={{uri: analyzedImages[4]?.path}} style={{ width: 128, height: 128 }} />
                   </TouchableOpacity>
-                  <Text style={{fontWeight: 'bold', marginTop: 10}}>Analisada</Text>
+                  <Text style={{fontWeight: 'bold', marginTop: 10}}>{translate('CreatePlotStepSix.analyzed')}</Text>
                 </View>
               </View>
-              <Text style={{fontWeight: 'bold', fontSize: 24}}>Planta B</Text>
+              <Text style={{fontWeight: 'bold', fontSize: 24}}>{translate('CreatePlotStepSix.plant') + ' B'}</Text>
               <View style={{flexDirection: 'row', flex: 1, justifyContent: 'space-between', marginBottom: 30}}>
                 <View style={{flexDirection: 'column', flex: 1, alignItems: 'center'}}>
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(fullData?.plantC?.plantBImage!)}>
@@ -251,14 +251,14 @@ export const CreatePlotStepNine: React.FC<
                   <TouchableOpacity activeOpacity={0.5} onPress={() => setImageToVisualize(analyzedImages[5])}>
                     <Image source={{uri: analyzedImages[5]?.path}} style={{ width: 128, height: 128 }} />
                   </TouchableOpacity>
-                  <Text style={{fontWeight: 'bold', marginTop: 10}}>Analisada</Text>
+                  <Text style={{fontWeight: 'bold', marginTop: 10}}>{translate('CreatePlotStepSix.analyzed')}</Text>
                 </View>
               </View>
             </View>
           </View>
           <NextStepButton>
             <Button
-              title="Confirmar"
+              title={translate('CreatePlotStepSix.confirm')}
               onPress={handleSubmitStepNine}
               showLoadingIndicator={loading}
             />
