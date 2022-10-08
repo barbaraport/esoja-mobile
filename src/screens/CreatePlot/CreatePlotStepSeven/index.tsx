@@ -106,8 +106,6 @@ export const CreatePlotStepSeven: React.FC<
 
   const pickPictureA = () => {
     ImageCropPicker.openPicker({
-      width: 256,
-      height: 256,
       cropping: true
     }).then(image => {
       setPlantAImage(image);
@@ -116,8 +114,6 @@ export const CreatePlotStepSeven: React.FC<
 
   const photographPictureA = () => {
     ImageCropPicker.openCamera({
-      width: 256,
-      height: 256,
       cropping: true
     }).then(image => {
       setPlantAImage(image);
@@ -126,8 +122,6 @@ export const CreatePlotStepSeven: React.FC<
 
   const pickPictureB = () => {
     ImageCropPicker.openPicker({
-      width: 256,
-      height: 256,
       cropping: true
     }).then(image => {
       setPlantBImage(image);
@@ -136,8 +130,6 @@ export const CreatePlotStepSeven: React.FC<
 
   const photographPictureB = () => {
     ImageCropPicker.openCamera({
-      width: 256,
-      height: 256,
       cropping: true
     }).then(image => {
       setPlantBImage(image);
@@ -146,16 +138,16 @@ export const CreatePlotStepSeven: React.FC<
 const analyzeImage = async (imageToAnalyze?: ImageOrVideo) => {
     if (imageToAnalyze) {
       const base64 = await RNFS.readFile(imageToAnalyze['path'], 'base64');
-      
-      const response = await imageRecognition.post("/recognizeImages", JSON.stringify([base64]));
+      const body = JSON.stringify(base64);
+      const response = await imageRecognition.post("/recognizeImages", [body]);
 
       if (response['status'] === 200) {
-        const responseBody = JSON.parse(response['data']) as Array<string>;
+        const responseBody = JSON.parse(response['data']) as Array<any>;
 
-        setImageToVisualize({path: 'data:image/png;base64,' + responseBody[0]} as ImageOrVideo);
+        setImageToVisualize({path: 'data:image/png;base64,' + responseBody[0].image} as ImageOrVideo);
+      } else {
+        throw new Error('Unable to analyze the image');
       }
-
-      throw new Error('Unable to analyze the image');
     } else {
       Alert.alert(
         'Erro ao analisar imagem',
@@ -174,12 +166,12 @@ const analyzeImage = async (imageToAnalyze?: ImageOrVideo) => {
     <ScrollView>
       <Container>
         <Title
-          title={translate('CreatePlotStepSix.title')}
-          subtitle={"Tire uma foto ou escolha de sua galeria imagens de duas plantas e insira suas respectivas alturas em centímetros"}
+          title={translate('CreatePlotStepSix.title') + ' 2'}
+          subtitle={translate('CreatePlotStepSix.explanation')}
         />
         <StepIndicator step={1} indicator={5} />
         {imageToVisualize !== null ?
-          <ImageDisplayer image={imageToVisualize} title='Image analisada' closeFunction={toggleImageVisualization}/>
+          <ImageDisplayer image={imageToVisualize} title={translate('CreatePlotStepSix.image')} closeFunction={toggleImageVisualization}/>
           :
           null
         }
@@ -189,7 +181,7 @@ const analyzeImage = async (imageToAnalyze?: ImageOrVideo) => {
               <Text style={{
                 textAlign: 'center', paddingRight: 15, marginBottom: 5,
                 fontWeight: 'bold'
-              }}>Planta A</Text>
+              }}>{translate('CreatePlotStepSix.plant') + ' A'}</Text>
               <View style={{
                 borderStyle: 'dashed', borderColor: 'black', borderWidth: 1,
                 flex: 1, justifyContent: 'center', alignItems: 'center',
@@ -211,14 +203,14 @@ const analyzeImage = async (imageToAnalyze?: ImageOrVideo) => {
                   <FontAwesome5 regular name="camera" size={RFFontSize(32)} color="#FFCC66" />
                 </TouchableOpacity>
                 <TouchableOpacity activeOpacity={0.5} onPress={pickPictureA}>
-                  <FontAwesome5 solid name="folder-open" size={RFFontSize(32)} color="#FFCC66" style={{ marginLeft: 40 }} />
+                  <FontAwesome5 solid name="folder-open" size={RFFontSize(32)} color="#FFCC66"/>
                 </TouchableOpacity>
               </View>
             </View>
             <View style={{ flexDirection: 'column', flex: 1 }}>
               <TextInput
                 label="plots.size"
-                placeholder={"Altura"}
+                placeholder={translate('CreatePlotStepSix.height')}
                 name="size"
                 onChangeText={(text) => setPlantASize(text)}
               />
@@ -227,13 +219,13 @@ const analyzeImage = async (imageToAnalyze?: ImageOrVideo) => {
                 onValueChange={(itemValue, itemIndex) =>
                   setPlantAStage(itemValue)
                 }>
-                <Picker.Item label="Escolha um estágio" value="default" enabled={false} />
-                <Picker.Item label="Desenvolvimento vegetativo" value="desenvolvimentoVegetativo" />
-                <Picker.Item label="Florescimento" value="florescimento" />
-                <Picker.Item label="Enchimento de grãos" value="enchimentoDeGraos" />
-                <Picker.Item label="Maturação" value="maturacao" />
-                <Picker.Item label="Maturação (Dessecado)" value="maturacaoDessecado" />
-                <Picker.Item label="Em colheita" value="emColheita" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectDefault')} value="default" enabled={false} />
+                <Picker.Item label={translate('CreatePlotStepSix.selectVegetativeDevelopment')} value="desenvolvimentoVegetativo" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectFlowering')} value="florescimento" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectGrainFilling')} value="enchimentoDeGraos" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectMaturation')} value="maturacao" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectDesiccatedMaturation')} value="maturacaoDessecado" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectInHarvest')} value="emColheita" />
               </Picker>
               <TouchableOpacity activeOpacity={0.5} onPress={() => analyzeImage(plantAImage)}>
                 <View style={{
@@ -241,7 +233,7 @@ const analyzeImage = async (imageToAnalyze?: ImageOrVideo) => {
                   marginTop: 15, paddingLeft: 0
                 }}>
                   <MaterialIcons name='image-search' size={RFFontSize(32)} color="#FFCC66" />
-                  <Text style={{ marginLeft: 10, fontSize: 14, fontWeight: 'bold' }}>Preview da análise</Text>
+                  <Text style={{ marginLeft: 10, fontSize: 14, fontWeight: 'bold' }}>{translate('CreatePlotStepSix.analysisPreview')}</Text>
                 </View>
               </TouchableOpacity>
             </View>
@@ -251,7 +243,7 @@ const analyzeImage = async (imageToAnalyze?: ImageOrVideo) => {
               <Text style={{
                 textAlign: 'center', paddingRight: 15, marginBottom: 5,
                 fontWeight: 'bold'
-              }}>Planta B</Text>
+              }}>{translate('CreatePlotStepSix.plant') + ' B'}</Text>
               <View style={{
                 borderStyle: 'dashed', borderColor: 'black', borderWidth: 1,
                 flex: 1, justifyContent: 'center', alignItems: 'center',
@@ -273,14 +265,14 @@ const analyzeImage = async (imageToAnalyze?: ImageOrVideo) => {
                   <FontAwesome5 regular name="camera" size={RFFontSize(32)} color="#FFCC66" />
                 </TouchableOpacity>
                 <TouchableOpacity activeOpacity={0.5} onPress={pickPictureB}>
-                  <FontAwesome5 solid name="folder-open" size={RFFontSize(32)} color="#FFCC66" style={{ marginLeft: 40 }} />
+                  <FontAwesome5 solid name="folder-open" size={RFFontSize(32)} color="#FFCC66" />
                 </TouchableOpacity>
               </View>
             </View>
             <View style={{ flexDirection: 'column', flex: 1 }}>
               <TextInput
                 label="plots.size"
-                placeholder={"Altura"}
+                placeholder={translate('CreatePlotStepSix.height')}
                 name="size"
                 onChangeText={(text) => setPlantBSize(text)}
               />
@@ -289,13 +281,13 @@ const analyzeImage = async (imageToAnalyze?: ImageOrVideo) => {
                 onValueChange={(itemValue, itemIndex) =>
                   setPlantBStage(itemValue)
                 }>
-                <Picker.Item label="Escolha um estágio" value="default" enabled={false} />
-                <Picker.Item label="Desenvolvimento vegetativo" value="desenvolvimentoVegetativo" />
-                <Picker.Item label="Florescimento" value="florescimento" />
-                <Picker.Item label="Enchimento de grãos" value="enchimentoDeGraos" />
-                <Picker.Item label="Maturação" value="maturacao" />
-                <Picker.Item label="Maturação (Dessecado)" value="maturacaoDessecado" />
-                <Picker.Item label="Em colheita" value="emColheita" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectDefault')} value="default" enabled={false} />
+                <Picker.Item label={translate('CreatePlotStepSix.selectVegetativeDevelopment')} value="desenvolvimentoVegetativo" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectFlowering')} value="florescimento" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectGrainFilling')} value="enchimentoDeGraos" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectMaturation')} value="maturacao" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectDesiccatedMaturation')} value="maturacaoDessecado" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectInHarvest')} value="emColheita" />
               </Picker>
               <TouchableOpacity activeOpacity={0.5} onPress={() => analyzeImage(plantBImage)}>
                 <View style={{
@@ -303,7 +295,7 @@ const analyzeImage = async (imageToAnalyze?: ImageOrVideo) => {
                   marginTop: 15, paddingLeft: 0
                 }}>
                   <MaterialIcons name='image-search' size={RFFontSize(32)} color="#FFCC66" />
-                  <Text style={{ marginLeft: 10, fontSize: 14, fontWeight: 'bold' }}>Preview da análise</Text>
+                  <Text style={{ marginLeft: 10, fontSize: 14, fontWeight: 'bold' }}>{translate('CreatePlotStepSix.analysisPreview')}</Text>
                 </View>
               </TouchableOpacity>
             </View>

@@ -26,11 +26,11 @@ export const PlotCard: React.FC<PlotCardProps> = ({ plot, onPress }) => {
         <PlotCropYear>
           {translate('plots.PlotCardCropYear')}: {plot?.cropYear}
         </PlotCropYear>
-        <PlotArea>Area: {plot?.areaTotal} hectares</PlotArea>
+        <PlotArea>{translate('plots.PlotCardPlants.area')}: {plot?.areaTotal} {translate('plots.PlotCardPlants.areaSize')}</PlotArea>
         {plot?.expectedProduction && (
           <PlotProduction>
             {translate('plots.PlotCardProdExpectation')}:{' '}
-            {plot.expectedProduction.toFixed(2)} ton/ha
+            {plot.expectedProduction.toFixed(2)} {translate('plots.PlotCardPlants.productionExpectation')}
           </PlotProduction>
         )}
       </InformationContainer>

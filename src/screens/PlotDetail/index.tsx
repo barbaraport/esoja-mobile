@@ -109,7 +109,7 @@ export const PlotDetail: React.FC<PlotDetailScreenRouteProps> = ({
                     <StrongText>
                       {translate('plots.PlotDetailProdExpectation')}:{' '}
                     </StrongText>
-                    {plot?.expectedProduction.toFixed(2)} ton/ha
+                    {plot?.expectedProduction.toFixed(2)} {translate('plots.PlotCardPlants.productionExpectation')}
                   </PlotProduction>
                 </>
               )}
