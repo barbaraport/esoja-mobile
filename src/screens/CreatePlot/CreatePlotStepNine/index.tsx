@@ -24,10 +24,10 @@ async function registerSample(data: any) {
       };
 
       try {
-        // await api.put(
-        //   `/cultive/sample-information/${data?.cultiveId}`,
-        //   updatePlot
-        // );
+        await api.put(
+          `/cultive/sample-information/${data?.cultiveId}`,
+          updatePlot
+        );
 
         const newSample = {
           cultiveId: data?.cultiveId,
@@ -38,8 +38,8 @@ async function registerSample(data: any) {
           ]
         };
 
-        //await api.post('/sample', newSample);
-        //await AsyncStorage.removeItem('@esoja:sample');
+        await api.post('/sample', newSample);
+        await AsyncStorage.removeItem('@esoja:sample');
         
       } catch (error) {
         console.error(error);
@@ -119,7 +119,7 @@ export const CreatePlotStepNine: React.FC<
       const success = await registerSample(fullData);
 
       if (success === true) {
-        // navigation.navigate('Plots');
+        navigation.navigate('Plots');
       } else {
         setLoading(false);
 
