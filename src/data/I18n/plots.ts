@@ -20,13 +20,16 @@ export default {
       PlotCardCropYear: 'Ano safra',
       PlotCardProdExpectation: 'Estimativa de produção',
       PlotCardPlants: {
-        plant1: 'Planta 1',
-        plant2: 'Planta 2',
+        plant1: 'Planta A',
+        plant2: 'Planta B',
         description: 'Descrição',
         grains: 'grãos',
         areaSize: "hectares",
         productionExpectation: "ton/ha",
-        area: "Área"
+        area: "Área",
+        stage: "Estágio",
+        pods: "Vagens",
+        stageNotFound: "Desconhecido"
       }
     }
   },
@@ -51,13 +54,16 @@ export default {
       PlotCardCropYear: 'Crop year',
       PlotCardProdExpectation: 'Production expectation',
       PlotCardPlants: {
-        plant1: 'Plant 1',
-        plant2: 'Plant 2',
+        plant1: 'Plant A',
+        plant2: 'Plant B',
         description: 'Description',
         grains: 'grains',
         areaSize: "acres",
         productionExpectation: "ton/ac",
         area: "Area",
+        pods: "Pods",
+        stage: "Stage",
+        stageNotFound: "Unknown"
       }
     }
   }
