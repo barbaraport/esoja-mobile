@@ -29,14 +29,52 @@ async function registerSample(data: any) {
           updatePlot
         );
 
+        console.log(data);
+        console.log(updatePlot);
+        console.log("-------------------------------------------------------------")
+
+        const plantAImageA = await RNFS.readFile(data?.plantA?.plantAImage!['path']!, 'base64');
+        const plantAImageB = await RNFS.readFile(data?.plantA?.plantBImage!['path']!, 'base64');
+        const plantBImageA = await RNFS.readFile(data?.plantB?.plantAImage!['path']!, 'base64');
+        const plantBImageB = await RNFS.readFile(data?.plantB?.plantBImage!['path']!, 'base64');
+        const plantCImageA = await RNFS.readFile(data?.plantC?.plantAImage!['path']!, 'base64');
+        const plantCImageB = await RNFS.readFile(data?.plantC?.plantBImage!['path']!, 'base64');
+
+
         const newSample = {
           cultiveId: data?.cultiveId,
           samples: [
-            { ...data?.plantA, name: 'Amostra 1' },
-            { ...data?.plantB, name: 'Amostra 2' },
-            { ...data?.plantC, name: 'Amostra 3' }
+            {
+               name: 'Amostra 1', 
+               photoPlantA: plantAImageA, 
+               photoPlantB: plantAImageB,
+               heightPlantB: parseInt(data.plantA.plantBSize),
+               heightPlantA: parseInt(data.plantA.plantASize),
+               stagePlantA: parseInt(data.plantA.plantAStage),
+               stagePlantB: parseInt(data.plantA.plantBStage),
+            },
+            { 
+               name: 'Amostra 2' ,
+                photoPlantA: plantBImageA,
+                photoPlantB: plantBImageB,
+                heightPlantB: parseInt(data.plantB.plantBSize),
+                heightPlantA: parseInt(data.plantB.plantASize),
+                stagePlantA: parseInt(data.plantB.plantAStage),
+                stagePlantB: parseInt(data.plantB.plantBStage),
+            },
+            { 
+              name: 'Amostra 3' ,
+              photoPlantA: plantCImageA,
+              photoPlantB: plantCImageB,
+              heightPlantA: parseInt(data.plantC.plantBSize),
+              heightPlantB: parseInt(data.plantC.plantASize),
+              stagePlantA: parseInt(data.plantC.plantAStage),
+              stagePlantB: parseInt(data.plantC.plantBStage),
+            }
           ]
         };
+
+        console.log(newSample);
 
         await api.post('/sample', newSample);
         await AsyncStorage.removeItem('@esoja:sample');
