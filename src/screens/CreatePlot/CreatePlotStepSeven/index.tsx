@@ -219,13 +219,13 @@ const analyzeImage = async (imageToAnalyze?: ImageOrVideo) => {
                 onValueChange={(itemValue, itemIndex) =>
                   setPlantAStage(itemValue)
                 }>
-                <Picker.Item label={translate('CreatePlotStepSix.selectDefault')} value="default" enabled={false} />
-                <Picker.Item label={translate('CreatePlotStepSix.selectVegetativeDevelopment')} value="desenvolvimentoVegetativo" />
-                <Picker.Item label={translate('CreatePlotStepSix.selectFlowering')} value="florescimento" />
-                <Picker.Item label={translate('CreatePlotStepSix.selectGrainFilling')} value="enchimentoDeGraos" />
-                <Picker.Item label={translate('CreatePlotStepSix.selectMaturation')} value="maturacao" />
-                <Picker.Item label={translate('CreatePlotStepSix.selectDesiccatedMaturation')} value="maturacaoDessecado" />
-                <Picker.Item label={translate('CreatePlotStepSix.selectInHarvest')} value="emColheita" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectDefault')} value="0" enabled={false} />
+                <Picker.Item label={translate('CreatePlotStepSix.selectVegetativeDevelopment')} value="1" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectFlowering')} value="2" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectGrainFilling')} value="3" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectMaturation')} value="4" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectDesiccatedMaturation')} value="5" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectInHarvest')} value="6" />
               </Picker>
               <TouchableOpacity activeOpacity={0.5} onPress={() => analyzeImage(plantAImage)}>
                 <View style={{
@@ -281,13 +281,13 @@ const analyzeImage = async (imageToAnalyze?: ImageOrVideo) => {
                 onValueChange={(itemValue, itemIndex) =>
                   setPlantBStage(itemValue)
                 }>
-                <Picker.Item label={translate('CreatePlotStepSix.selectDefault')} value="default" enabled={false} />
-                <Picker.Item label={translate('CreatePlotStepSix.selectVegetativeDevelopment')} value="desenvolvimentoVegetativo" />
-                <Picker.Item label={translate('CreatePlotStepSix.selectFlowering')} value="florescimento" />
-                <Picker.Item label={translate('CreatePlotStepSix.selectGrainFilling')} value="enchimentoDeGraos" />
-                <Picker.Item label={translate('CreatePlotStepSix.selectMaturation')} value="maturacao" />
-                <Picker.Item label={translate('CreatePlotStepSix.selectDesiccatedMaturation')} value="maturacaoDessecado" />
-                <Picker.Item label={translate('CreatePlotStepSix.selectInHarvest')} value="emColheita" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectDefault')} value="0" enabled={false} />
+                <Picker.Item label={translate('CreatePlotStepSix.selectVegetativeDevelopment')} value="1" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectFlowering')} value="2" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectGrainFilling')} value="3" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectMaturation')} value="4" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectDesiccatedMaturation')} value="5" />
+                <Picker.Item label={translate('CreatePlotStepSix.selectInHarvest')} value="6" />
               </Picker>
               <TouchableOpacity activeOpacity={0.5} onPress={() => analyzeImage(plantBImage)}>
                 <View style={{
