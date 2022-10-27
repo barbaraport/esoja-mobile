@@ -23,12 +23,9 @@ async function registerSample(data: any) {
         metersBetweenPlants: (Number(data?.metersBetweenPlants) || 0) / 100,
       };
 
-      try {
-        await api.put(
-          `/cultive/sample-information/${data?.cultiveId}`,
-          updatePlot
-        );
+      console.log(updatePlot);
 
+      try {
         console.log(data);
         console.log(updatePlot);
         console.log("-------------------------------------------------------------")
