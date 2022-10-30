@@ -19,9 +19,15 @@ import RNFS from 'react-native-fs';
 
 async function registerSample(data: any) {
       const updatePlot = {
+        id: data?.cultiveId,
         plantsPerMeter: data?.plantsPerMeter,
         metersBetweenPlants: (Number(data?.metersBetweenPlants) || 0) / 100,
       };
+
+      await api.put(
+          `/cultive/sample-information`,
+          updatePlot
+      );
 
       console.log(updatePlot);
 
