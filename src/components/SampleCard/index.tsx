@@ -14,19 +14,19 @@ export const SampleCard: React.FC<SampleCardProps> = ({ sample }) => {
         {translate('plots.PlotCardPlants.plant1')}
       </SampleName>
       <SampleData>
-        {translate('plots.PlotCardPlants.pods')}: {sample?.plantAPods}{' '}
+        {translate('plots.PlotCardPlants.pods')}: {sample?.podsPlantA}{' '}
       </SampleData>
       <SampleData>
-        {translate('plots.PlotCardPlants.stage')}: {getStageText(sample?.plantAStage)}
+        {translate('plots.PlotCardPlants.stage')}: {getStageText(sample?.stagePlantA)}
       </SampleData>
       <SampleName>
         {translate('plots.PlotCardPlants.plant2')}
       </SampleName>
       <SampleData>
-        {translate('plots.PlotCardPlants.pods')}: {sample?.plantBPods}{' '}
+        {translate('plots.PlotCardPlants.pods')}: {sample?.podsPlantB}{' '}
       </SampleData>
       <SampleData>
-        {translate('plots.PlotCardPlants.stage')}: {getStageText(sample?.plantBStage)}
+        {translate('plots.PlotCardPlants.stage')}: {getStageText(sample?.stagePlantB)}
       </SampleData>
     </SampleInformationContainer>
   );

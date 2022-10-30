@@ -27,7 +27,7 @@ export const PlotCard: React.FC<PlotCardProps> = ({ plot, onPress }) => {
           {translate('plots.PlotCardCropYear')}: {plot?.cropYear}
         </PlotCropYear>
         <PlotArea>{translate('plots.PlotCardPlants.area')}: {plot?.areaTotal} {translate('plots.PlotCardPlants.areaSize')}</PlotArea>
-        {plot?.expectedProduction && (
+        {plot?.expectedProduction !== null && (
           <PlotProduction>
             {translate('plots.PlotCardProdExpectation')}:{' '}
             {plot.expectedProduction.toFixed(2)} {translate('plots.PlotCardPlants.productionExpectation')}
