@@ -24,25 +24,20 @@ async function registerSample(data: any) {
         metersBetweenPlants: (Number(data?.metersBetweenPlants) || 0) / 100,
       };
 
+      console.log('oi');
       await api.put(
           `/cultive/sample-information`,
           updatePlot
       );
 
-      console.log(updatePlot);
-
+      console.log('tchau');
       try {
-        console.log(data);
-        console.log(updatePlot);
-        console.log("-------------------------------------------------------------")
-
         const plantAImageA = await RNFS.readFile(data?.plantA?.plantAImage!['path']!, 'base64');
         const plantAImageB = await RNFS.readFile(data?.plantA?.plantBImage!['path']!, 'base64');
         const plantBImageA = await RNFS.readFile(data?.plantB?.plantAImage!['path']!, 'base64');
         const plantBImageB = await RNFS.readFile(data?.plantB?.plantBImage!['path']!, 'base64');
         const plantCImageA = await RNFS.readFile(data?.plantC?.plantAImage!['path']!, 'base64');
         const plantCImageB = await RNFS.readFile(data?.plantC?.plantBImage!['path']!, 'base64');
-
 
         const newSample = {
           cultiveId: data?.cultiveId,
@@ -77,8 +72,6 @@ async function registerSample(data: any) {
           ]
         };
 
-        console.log(newSample);
-
         await api.post('/sample', newSample);
         await AsyncStorage.removeItem('@esoja:sample');
         
@@ -86,7 +79,7 @@ async function registerSample(data: any) {
         console.error(error);
         return false;
       }
-
+      console.log('parece que foi tudo!!!!!!!!');
       return true;
 }
 
