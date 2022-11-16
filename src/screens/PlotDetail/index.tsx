@@ -42,7 +42,7 @@ export const PlotDetail: React.FC<PlotDetailScreenRouteProps> = ({
       populate: [
         {
           path: 'samples',
-          select: 'stagePlantA stagePlantB podsPlantA podsPlantB photoPlantA photoPlantB name'
+          select: 'stagePlantA stagePlantB podsPlantA podsPlantB photoPlantA photoPlantB grainsPlantA grainsPlantB name'
         },
         { path: 'property', select: 'name' }
       ],

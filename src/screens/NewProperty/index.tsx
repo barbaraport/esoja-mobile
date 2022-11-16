@@ -40,7 +40,7 @@ export const NewProperty: React.FC<NewPropertyScreenRouteProps> = ({
 
   const { pictureUpload, selectImage } = useUpload();
   const { getCoordinates, getGeoCode, getZipcode } = useLocation();
-  const { createPorperty } = useProperty();
+  const { createProperty } = useProperty();
   const { authUser } = useAuth();
 
   const {
@@ -79,7 +79,7 @@ export const NewProperty: React.FC<NewPropertyScreenRouteProps> = ({
         data.longitude = longitude;
       }
       data.userId = authUser?.id;
-      await createPorperty(data);
+      await createProperty(data);
       navigation.navigate('Properties');
       setLoading(false);
     } catch (error: any) {

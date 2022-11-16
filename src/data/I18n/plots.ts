@@ -29,7 +29,7 @@ export default {
         area: "Área",
         stage: "Estágio",
         pods: "Vagens",
-        stageNotFound: "Desconhecido"
+        stageNotFound: "Desconhecido",
       }
     }
   },
@@ -63,7 +63,7 @@ export default {
         area: "Area",
         pods: "Pods",
         stage: "Stage",
-        stageNotFound: "Unknown"
+        stageNotFound: "Unknown",
       }
     }
   }
