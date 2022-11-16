@@ -30,7 +30,6 @@ export default {
         stage: "Estágio",
         pods: "Vagens",
         stageNotFound: "Desconhecido",
-        grains: "Grãos"
       }
     }
   },
@@ -65,7 +64,6 @@ export default {
         pods: "Pods",
         stage: "Stage",
         stageNotFound: "Unknown",
-        grains: "Grains"
       }
     }
   }
