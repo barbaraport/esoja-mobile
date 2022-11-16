@@ -17,7 +17,7 @@ export const SampleCard: React.FC<SampleCardProps> = ({ sample }) => {
         {translate('plots.PlotCardPlants.pods')}: {sample?.podsPlantA}{' '}
       </SampleData>
       <SampleData>
-        {translate('plots.PlotCardPlants.grains')}: {sample?.grainsPlantA}{' '}
+        {translate('plots.PlotCardPlants.grains')[0] + translate('plots.PlotCardPlants.grains').substring(1)}: {sample?.grainsPlantA}{' '}
       </SampleData>
       <SampleData>
         {translate('plots.PlotCardPlants.stage')}: {getStageText(sample?.stagePlantA)}
@@ -29,7 +29,7 @@ export const SampleCard: React.FC<SampleCardProps> = ({ sample }) => {
         {translate('plots.PlotCardPlants.pods')}: {sample?.podsPlantB}{' '}
       </SampleData>
       <SampleData>
-        {translate('plots.PlotCardPlants.grains')}: {sample?.grainsPlantB}{' '}
+        {translate('plots.PlotCardPlants.grains')[0] + translate('plots.PlotCardPlants.grains').substring(1)}: {sample?.grainsPlantB}{' '}
       </SampleData>
       <SampleData>
         {translate('plots.PlotCardPlants.stage')}: {getStageText(sample?.stagePlantB)}
