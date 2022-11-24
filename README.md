@@ -1,22 +1,22 @@
 # :vibration_mode: eSoja app :seedling:
-## :running_woman: Como rodar o aplicativo
+## :running_woman: How to run the app
 
-Primeiramente, clone o repositório. Atente-se sobre o caminho do clone dentro da sua máquina. Evite que quaisquer pastas tenham caracteres especiais e espaços no nome. Depois, siga os seguintes passos:
+First of all, you'll need to clone the repository. Pay attention to the path of the clone that you'll download. Avoid any folders having special characters and/or spaces in the name. Afterwards, follow these steps:
 
 ## Android :robot:
 
-1. Instale o JDK (Java Development Kit). Recomendamos utilizar o [JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html). Talvez seja necessário reiniciar o computador para que a instalação seja reconhecida.
-2. Instale o NodeJS. Talvez seja necessário reiniciar o computador para que a instalação seja reconhecida.
-3. Crie a variável de ambiente, para o sistema, chamada ```JAVA_HOME```. Nela terá o caminho em que o JDK está instalado. Exemplo: ```C:\Program Files\Java\jdk-15.0.2```.
-4. Adicione o caminho ```C:\Program Files\Java\jdk-15.0.2\bin``` (não se esqueça de verificar a versão do seu JDK) a uma variável chamada ```Path```, já existente, nas variáveis de sistema. Crie uma nova linha (:warning: cuidado para não alterar os caminhos já existentes :warning:) Esse passo faz com que comandos do Java sejam reconhecidos no terminal.
-5. Digite ```java --version``` no terminal para ver se tudo está configurado corretamente. Caso não funcione mesmo assim, reinicie o computador para ter certeza que tudo foi aplicado. Se mesmo assim não funcionar, verifique se você configurou corretamente as variáveis nos passos anteriores.
-6. Instale o Android Studio para obter o SDK necessário para a execução do *app* em um dispositivo móvel.
-7. Crie uma variável de ambiente para o sistema, chamada de `ANDROID_HOME`. Seu valor deve ser o caminho do SDK do Android dentro do seu computador. Exemplo: `C:\Users\seu-nome-de-usuario\AppData\Local\Android\Sdk`.
-8. Adicione o caminho `C:\Users\seu-nome-de-usuario\AppData\Local\Android\Sdk\platform-tools` a uma variável chamada ```Path```, já existente, nas variáveis de sistema. Crie uma nova linha (:warning: cuidado para não alterar os caminhos já existentes :warning:). Esse passo faz com que o comando `adb devices` seja reconhecido no terminal. Assim, ao conectar o seu celular via USB é possível ver se ele é reconhecido como um dispositivo apto a executar o *app* ou não.
-9. Nas configurações de desenvolvedor do seu dispositivo móvel, ative a opção `Depuração USB` para que o *app* possa ser reconhecido pelo `adb` e possa ser instalado no seu celular via USB. Um dos membros da nossa equipe, devido a personalizações do Android, precisou ativar mais configurações disponíveis sobre a `Instalação via USB` para que o *app* fosse instalado com sucesso. Verifique todas as opções disponíveis nas configurações de desenvolvedor do seu celular.
-10. Abra a pasta `\esoja-mobile\` no Visual Studio Code. Essa pasta é correspondente ao projeto *React Native* do aplicativo *mobile*.
-11. No terminal, execute o comando ```npm install``` para instalar todas as dependências do *app*, talvez seja necessário adicionar ao comando `--legacy-peer-deps` ou `--force`.
-12. Um outro detalhe para que você tenha a experiência completa: é necessário [executar o back-end  das funcionalidades antigas do app em uma nova versão](https://github.com/barbaraport/esoja-api) e o [back-end da nova funcionalidade do app](https://github.com/barbaraport/softtelie-ehsoja/tree/main/src/server/imageRecognition) e inserir no arquivo ```\src\data\services\api.ts``` o IP e a porta do servidor.
-13. Insira as chaves da API do Open Weather no arquivo ```\src\data\services\weather.services.ts```.
-14. O jeito mais simples para executar o aplicativo é via USB. Sendo assim, conecte o seu celular no computador. O celular deve estar desbloqueado.
-15. Certifique-se de que você está na pasta `\esoja-mobile\` e execute o nosso app com o comando ```npm run android``` . O app passará por um processo de *build* e a primeira vez pode demorar um pouco. Quando tudo estiver finalizado, o *app* automaticamente abrirá no seu celular!
+1. Install the JDK (Java Development Kit). We recomend using the [JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html). You may need to restart your computer to the installation be recognized.
+2. Install the NodeJS. You may need to restart your computer to the installation be recognized.
+3. Create the environment variable ```JAVA_HOME```. It will have the path where the JDK is installed. For example: ```C:\Program Files\Java\jdk-17.0.0```.
+4. Add the path ```C:\Program Files\Java\jdk-17.0.0\bin``` (don't forget to verify your JDK's version) to an already existing variable called `Path` in the system variables. Create a new line (:warning: be careful to don't change existing paths :warning:) This step makes Java commands recognizable in the terminal.
+5. Type ```java --version``` in the terminal to see if everything is configured correctly. If it doesn't work, restart your computer to make sure everything has been applied. If it still doesn't work, check that you correctly configured the variables in the previous steps.
+6. Install Android Studio to get the necessary SDK to run your app on a mobile device.
+7. Create an environment variable for the system called ANDROID_HOME. Its value should be the Android SDK path inside your computer. Example: `C:\Users\username\AppData\Local\Android\Sdk`.
+8. Add the path `C:\Users\username\AppData\Local\Android\Sdk\platform-tools` to an already existing variable called ```Path``` in the system variables.  Create a new line (:warning: be careful to don't change existing paths :warning:) This step makes ADB commands recognizable in the terminal. Type ```adb devices``` to check. Thus, when connecting your smartphone via USB, you can see if it is recognized as a device capable of running the app or not.
+9. In your mobile device's developer settings, enable the `USB debugging` option so that your smartphone can be recognized as an available device and the app can be installed on your mobile via USB. Due to some Android customizations, it you may also need to enable more settings available under `Install via USB` in order for the app to install successfully. Check all available options in your mobile developer settings.
+10. Open the `esoja-mobile` folder in Visual Studio Code. This folder corresponds to the mobile app's React Native project.
+11. In the terminal, run the ```npm install``` command to install all the app's dependencies, you may need to add the ```--legacy-peer-deps``` or ```--force``` argument.
+12. Another detail for you to have the full experience: you need to run the [back-end fom the app's functionalities in a new version](https://github.com/barbaraport/esoja-api) and the [back-end of the new app functionality](https://github.com/barbaraport/softtelie-ehsoja/tree/main/src/server/imageRecognition) and insert **IP Address** and the **port** in the `esoja-mobile\src\data\services\api.ts` file.
+13. Enter the Open Weather API keys in the ```\src\data\services\weather.services.ts``` file.
+14. The simplest way to run the application is via USB. So, connect your phone to the computer. The cell phone must be unlocked.
+15. Make sure you are in the `esoja-mobile` folder and run our app with the ```npm run android``` command. The app will go through a build process and the first time may take a while. When everything is finished, the app will automatically open on your phone!
